@@ -1,7 +1,7 @@
 #include <sstream>
 #include <utility>
 
-#include "tensorshape.h"
+#include "../headers/tensorshape.h"
 
 using namespace std;
 
@@ -48,3 +48,16 @@ bool tensorShape::sameSize(const tensorShape &other) const {
     return getSize() == other.getSize();
 }
 
+bool tensorShape::operator==(const tensorShape &other) const {
+    if (shape.size() != other.shape.size()) return false;
+
+    for (int i = 0; i < shape.size(); i++) {
+        if (shape[i] != other.shape[i]) return false;
+    }
+
+    return true;
+}
+
+bool tensorShape::operator!=(const tensorShape &other) const {
+    return !(*this == other);
+}

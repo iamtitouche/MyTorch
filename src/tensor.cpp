@@ -5,9 +5,14 @@
 
 using namespace std;
 
-tensor::tensor(tensorShape shape) : shape(move(shape)), data(size.getSize(), 0.0) {}
+tensor::tensor(tensorShape shape) : shape(move(shape)), data(shape.getSize(), 0.0) {}
 
-tensor::tensor(tensorShape shape, double value) : shape(move(shape)), data(size.getSize(), value) {}
+tensor::tensor(tensorShape shape, double value) : shape(move(shape)), data(shape.getSize(), value) {}
+
+
+tensorShape tensor::getShape() const {
+    return shape;
+}
 
 
 bool tensor::sameShape(const tensor &other) const {

@@ -10,7 +10,10 @@ class tensor {
 public:
     tensor(tensorShape shape);
     tensor(tensorShape shape, double value);
-    tensor tensor::copy() const;
+    tensor copy() const;
+
+    tensorShape getShape() const;
+
     bool sameShape(const tensor &other) const;
     bool sameSize(const tensor &other) const;
     void checkShapes(const tensor &other) const;

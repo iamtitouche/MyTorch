@@ -15,6 +15,14 @@ public:
     vector<uint32_t>& getShape();
     bool sameShape(const tensorShape& other) const;
     bool sameSize(const tensorShape& other) const;
+
+    // Overloaded equality operator
+    bool operator==(const tensorShape& other) const;
+
+    // Overloaded inequality operator
+    bool operator!=(const tensorShape& other) const;
+
+
 private:
     vector<uint32_t> shape;
 };
