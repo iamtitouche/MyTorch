@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <string>
 #include <vector>
+#include <optional>
 
 using namespace std;
 
@@ -21,6 +22,9 @@ public:
 
     // Overloaded inequality operator
     bool operator!=(const tensorShape& other) const;
+
+    void squeeze(optional<int> dim = nullopt);
+    void unsqueeze(int dim);
 
 
 private:

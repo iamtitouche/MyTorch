@@ -149,3 +149,11 @@ tensor& tensor::operator/=(const tensor& other) {
     }
     return *this;
 }
+
+void tensor::squeeze(optional<int> dim) {
+    shape.squeeze(dim);
+}
+
+void tensor::unsqueeze(int dim) {
+    shape.unsqueeze(dim);
+}

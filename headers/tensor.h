@@ -2,6 +2,7 @@
 #define TENSOR_H
 
 #include <vector>
+#include <optional>
 #include "tensorshape.h"
 
 using namespace std;
@@ -35,6 +36,9 @@ public:
     tensor& operator-=(const tensor& other);
     tensor& operator*=(const tensor& other);
     tensor& operator/=(const tensor& other);
+
+    void squeeze(optional<int> dim = nullopt);
+    void unsqueeze(int dim);
 
 private:
     tensorShape shape;

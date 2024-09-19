@@ -6,6 +6,11 @@
 using namespace std;
 
 tensorShape::tensorShape(vector<uint32_t> shape) {
+    if (shape.empty()) throw invalid_argument("Error : Shape cannot be empty.");
+
+    for (const auto& dim : shape) {
+        if (dim == 0) throw invalid_argument("Error : Dimensions must be greater than 0.");
+    }
     this->shape = move(shape);
 }
 
@@ -61,3 +66,31 @@ bool tensorShape::operator==(const tensorShape &other) const {
 bool tensorShape::operator!=(const tensorShape &other) const {
     return !(*this == other);
 }
+
+void tensorShape::squeeze(optional<int> dim) {
+    if (shape.size() == 1) return;
+
+    if (dim) { // If a specific dimension is provided
+        int d = dim.value();
+        if (d < 0 || d >= static_cast<int>(shape.size())) {
+            throw out_of_range("Dimension out of range");
+        }
+        if (shape[d] == 1) {
+            shape.erase(shape.begin() + d);
+        }
+    } else { // If no dimension is provided, squeeze all dimensions of size 1
+        vector<uint32_t> new_shape;
+        for (size_t i = 0; i < shape.size(); i++) {
+            if (shape[i] != 1) {
+                new_shape.push_back(shape[i]);
+            }
+        }
+        shape = new_shape;
+    }
+}
+
+
+void tensorShape::unsqueeze(int dim) {
+    shape.insert(shape.begin() + dim, 1);
+}
+
