@@ -9,15 +9,18 @@ using namespace std;
 
 class tensor {
 public:
-    tensor(tensorShape shape);
+    explicit tensor(tensorShape shape);
     tensor(tensorShape shape, double value);
-    tensor copy() const;
+    [[nodiscard]] tensor copy() const;
 
-    tensorShape getShape() const;
+    [[nodiscard]] tensorShape getShape() const;
+    [[nodiscard]] vector<double> getData() const;
 
     bool sameShape(const tensor &other) const;
     bool sameSize(const tensor &other) const;
     void checkShapes(const tensor &other) const;
+
+    [[nodiscard]] string toString() const;
 
     // Overloaded operators with tensor input
     tensor operator+(const tensor& other) const;
@@ -37,8 +40,10 @@ public:
     tensor& operator*=(const tensor& other);
     tensor& operator/=(const tensor& other);
 
-    void squeeze(optional<int> dim = nullopt);
-    void unsqueeze(int dim);
+    [[nodiscard]] tensor squeeze(optional<int> dim = nullopt) const;
+    [[nodiscard]] tensor unsqueeze(int dim) const;
+
+    [[nodiscard]] tensor concat(const tensor& other, int dim) const;
 
 private:
     tensorShape shape;

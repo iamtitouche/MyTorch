@@ -1,25 +1,25 @@
+#include <iostream>
 #include <sstream>
 #include <utility>
+#include <cstdint>
+#include <numeric>
 
 #include "../headers/tensorshape.h"
 
 using namespace std;
 
-tensorShape::tensorShape(vector<uint32_t> shape) {
-    if (shape.empty()) throw invalid_argument("Error : Shape cannot be empty.");
+tensorShape::tensorShape(vector<size_t> shape_vector) {
+    if (shape_vector.empty()) throw invalid_argument("Error : Shape cannot be empty.");
 
-    for (const auto& dim : shape) {
+    for (const auto& dim : shape_vector) {
         if (dim == 0) throw invalid_argument("Error : Dimensions must be greater than 0.");
     }
-    this->shape = move(shape);
+
+    shape = vector<size_t>(shape_vector);
 }
 
-uint32_t tensorShape::getSize() const {
-    uint32_t size = 1;
-    for (int i = 0; i < this->shape.size(); i++) {
-        size *= this->shape[i];
-    }
-    return size;
+size_t tensorShape::getSize() const {
+    return accumulate(shape.begin(), shape.end(), 1, multiplies<>());
 }
 
 string tensorShape::toString() const {
@@ -35,32 +35,17 @@ string tensorShape::toString() const {
     return ss.str();
 }
 
-vector<uint32_t>& tensorShape::getShape() {
+vector<size_t> tensorShape::getShape() const {
     return shape;
 }
 
-bool tensorShape::sameShape(const tensorShape &other) const {
-    if (shape.size() != other.shape.size()) return false;
-
-    for (int i = 0; i < this->shape.size(); i++) {
-        if (shape[i] != other.shape[i]) return false;
-    }
-
-    return true;
-}
 
 bool tensorShape::sameSize(const tensorShape &other) const {
     return getSize() == other.getSize();
 }
 
 bool tensorShape::operator==(const tensorShape &other) const {
-    if (shape.size() != other.shape.size()) return false;
-
-    for (int i = 0; i < shape.size(); i++) {
-        if (shape[i] != other.shape[i]) return false;
-    }
-
-    return true;
+    return shape.size() == other.shape.size() && equal(shape.begin(), shape.end(), other.shape.begin());
 }
 
 bool tensorShape::operator!=(const tensorShape &other) const {
@@ -68,19 +53,22 @@ bool tensorShape::operator!=(const tensorShape &other) const {
 }
 
 void tensorShape::squeeze(optional<int> dim) {
-    if (shape.size() == 1) return;
-
     if (dim) { // If a specific dimension is provided
-        int d = dim.value();
+        const int d = dim.value();
         if (d < 0 || d >= static_cast<int>(shape.size())) {
             throw out_of_range("Dimension out of range");
         }
-        if (shape[d] == 1) {
-            shape.erase(shape.begin() + d);
+        if (shape[d] != 1) {
+            throw invalid_argument("This tensorShape cannot be squeezed on this dimension");
         }
+        if (shape.size() == 1) return;
+
+        shape.erase(shape.begin() + d);
+
     } else { // If no dimension is provided, squeeze all dimensions of size 1
-        vector<uint32_t> new_shape;
-        for (size_t i = 0; i < shape.size(); i++) {
+        if (shape.size() == 1) return;
+        vector<size_t> new_shape;
+        for (size_t i = 0; i < shape.size(); ++i) {
             if (shape[i] != 1) {
                 new_shape.push_back(shape[i]);
             }
@@ -93,4 +81,16 @@ void tensorShape::squeeze(optional<int> dim) {
 void tensorShape::unsqueeze(int dim) {
     shape.insert(shape.begin() + dim, 1);
 }
+
+
+bool tensorShape::isConcatCompatible(const tensorShape &other, int dim) const {
+    if (shape.size() != other.shape.size()) return false;
+
+    for (size_t i = 0; i < shape.size(); ++i) {
+        if (i != dim && shape[i] != other.shape[i]) return false;
+    }
+
+    return true;
+}
+
 

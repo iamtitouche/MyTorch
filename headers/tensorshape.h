@@ -10,12 +10,14 @@ using namespace std;
 
 class tensorShape {
 public:
-    tensorShape(vector<uint32_t> shape);
-    uint32_t getSize() const;
-    string toString() const;
-    vector<uint32_t>& getShape();
-    bool sameShape(const tensorShape& other) const;
-    bool sameSize(const tensorShape& other) const;
+    explicit tensorShape(vector<size_t> shape_vector);
+
+    // toString method
+    [[nodiscard]] string toString() const;
+
+    // shape and size getter
+    [[nodiscard]] vector<size_t> getShape() const;
+    [[nodiscard]] size_t getSize() const;
 
     // Overloaded equality operator
     bool operator==(const tensorShape& other) const;
@@ -26,9 +28,13 @@ public:
     void squeeze(optional<int> dim = nullopt);
     void unsqueeze(int dim);
 
+    // TensorShape Comparator
+    [[nodiscard]] bool sameSize(const tensorShape& other) const;
+    [[nodiscard]] bool isConcatCompatible(const tensorShape& other, int dim) const;
+
 
 private:
-    vector<uint32_t> shape;
+    vector<size_t> shape;
 };
 
 #endif //TENSORSHAPE_H
