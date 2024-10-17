@@ -8,7 +8,7 @@
 
 using namespace std;
 
-tensorShape::tensorShape(vector<size_t> shape_vector) {
+tensorShape::tensorShape(const vector<size_t>& shape_vector) {
     if (shape_vector.empty()) throw invalid_argument("Error : Shape cannot be empty.");
 
     for (const auto& dim : shape_vector) {

@@ -1,0 +1,69 @@
+Start testing: Oct 12 16:40 Paris, Madrid (heure d’été)
+----------------------------------------------------------
+1/1 Testing: MyTorchTests
+1/1 Test: MyTorchTests
+Command: "C:/Users/dev/Documents/MyTorch/build/tests.exe"
+Directory: C:/Users/dev/Documents/MyTorch/build
+"MyTorchTests" start time: Oct 12 16:40 Paris, Madrid (heure d’été)
+Output:
+----------------------------------------------------------
+[==========] Running 20 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 16 tests from TensorShapeTest
+[ RUN      ] TensorShapeTest.Constructor
+[       OK ] TensorShapeTest.Constructor (0 ms)
+[ RUN      ] TensorShapeTest.CopyConstructor
+[       OK ] TensorShapeTest.CopyConstructor (0 ms)
+[ RUN      ] TensorShapeTest.ConstructorInvalidArgumentZeroValue
+[       OK ] TensorShapeTest.ConstructorInvalidArgumentZeroValue (0 ms)
+[ RUN      ] TensorShapeTest.ConstructorInvalidArgumentEmptyVector
+[       OK ] TensorShapeTest.ConstructorInvalidArgumentEmptyVector (0 ms)
+[ RUN      ] TensorShapeTest.getSize
+[       OK ] TensorShapeTest.getSize (0 ms)
+[ RUN      ] TensorShapeTest.Equal
+[       OK ] TensorShapeTest.Equal (0 ms)
+[ RUN      ] TensorShapeTest.NotEqual
+[       OK ] TensorShapeTest.NotEqual (0 ms)
+[ RUN      ] TensorShapeTest.SqueezeWithoutArgument
+[       OK ] TensorShapeTest.SqueezeWithoutArgument (0 ms)
+[ RUN      ] TensorShapeTest.SqueezeWithArgument
+[       OK ] TensorShapeTest.SqueezeWithArgument (0 ms)
+[ RUN      ] TensorShapeTest.SqueezeOneDimensionalShape
+[       OK ] TensorShapeTest.SqueezeOneDimensionalShape (0 ms)
+[ RUN      ] TensorShapeTest.SqueezeNonOneDimension
+[       OK ] TensorShapeTest.SqueezeNonOneDimension (0 ms)
+[ RUN      ] TensorShapeTest.SqueezeNonExistentDimension
+[       OK ] TensorShapeTest.SqueezeNonExistentDimension (0 ms)
+[ RUN      ] TensorShapeTest.Unsqueeze
+[       OK ] TensorShapeTest.Unsqueeze (0 ms)
+[ RUN      ] TensorShapeTest.ConcatenationCompatibility
+[       OK ] TensorShapeTest.ConcatenationCompatibility (0 ms)
+[ RUN      ] TensorShapeTest.SameSize
+[       OK ] TensorShapeTest.SameSize (0 ms)
+[ RUN      ] TensorShapeTest.StringRendering
+[       OK ] TensorShapeTest.StringRendering (0 ms)
+[----------] 16 tests from TensorShapeTest (0 ms total)
+
+[----------] 4 tests from TensorTest
+[ RUN      ] TensorTest.ConstructorWithShape
+[       OK ] TensorTest.ConstructorWithShape (0 ms)
+[ RUN      ] TensorTest.NormalInitialisation
+[       OK ] TensorTest.NormalInitialisation (1 ms)
+[ RUN      ] TensorTest.Copy
+[       OK ] TensorTest.Copy (0 ms)
+[ RUN      ] TensorTest.ShapeGetter
+[       OK ] TensorTest.ShapeGetter (0 ms)
+[----------] 4 tests from TensorTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 20 tests from 2 test suites ran. (2 ms total)
+[  PASSED  ] 20 tests.
+<end of output>
+Test time =  15.75 sec
+----------------------------------------------------------
+Test Passed.
+"MyTorchTests" end time: Oct 12 16:40 Paris, Madrid (heure d’été)
+"MyTorchTests" time elapsed: 00:00:15
+----------------------------------------------------------
+
+End testing: Oct 12 16:40 Paris, Madrid (heure d’été)

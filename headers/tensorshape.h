@@ -10,7 +10,7 @@ using namespace std;
 
 class tensorShape {
 public:
-    explicit tensorShape(vector<size_t> shape_vector);
+    explicit tensorShape(const vector<size_t>& shape_vector);
 
     // toString method
     [[nodiscard]] string toString() const;

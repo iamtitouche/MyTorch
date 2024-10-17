@@ -12,38 +12,53 @@ protected:
     void TearDown() override {
         // This function is called after each test
     }
-
-    // Example tensor shapes for testing
-    tensorShape shape = tensorShape({2, 3});
-    tensorShape shape2 = tensorShape({3, 2});
 };
 
 // Test constructor with shape
-//TEST_F(TensorTest, ConstructorWithShape) {
-//    tensor t(shape);
-//    EXPECT_EQ(t.sameShape(tensor(shape)), true);
-//    EXPECT_EQ(t.sameSize(tensor(shape)), true);
-//    EXPECT_EQ(t.getShape(), shape);
-//}
-//
-//// Test constructor with shape and initial value
-//TEST_F(TensorTest, ConstructorWithShapeAndValue) {
-//    double initValue = 5.0;
-//    tensor t(shape, initValue);
-//    EXPECT_EQ(t.sameShape(tensor(shape)), true);
-//    EXPECT_EQ(t.sameSize(tensor(shape)), true);
-//}
-//
-//
-//TEST_F(TensorTest, Copy) {
-//    tensor t1(shape, 2.3);
-//
-//    tensor t2 = t1.copy();
-//
-//    EXPECT_EQ(t1.getShape(), t2.getShape());
-//    EXPECT_EQ(t1.getData(), t2.getData());
-//
-//    EXPECT_NE(&t1, &t2);
-//    EXPECT_NE(t1.getData().data(), t2.getData().data());
-//}
-//
+TEST_F(TensorTest, ConstructorWithShape) {
+    const tensorShape shape = tensorShape({2, 3});
+    const tensor t(shape);
+
+    EXPECT_EQ(t.getShape(), shape);
+    EXPECT_NE(&(t.getShape()), &shape);
+    EXPECT_EQ(t.getSize(), shape.getSize());
+
+}
+
+TEST_F(TensorTest, NormalInitialisation) {
+    const tensorShape shape = tensorShape({100, 100});
+    tensor t(shape);
+
+    t.initNormal(10.0, 1.0);
+
+    EXPECT_EQ(t.getShape(), shape);
+    EXPECT_EQ(t.getSize(), shape.getSize());
+
+
+
+
+}
+
+
+TEST_F(TensorTest, Copy) {
+    const tensorShape shape = tensorShape({2, 3});
+    tensor t1(shape, 2.3);
+    tensor t2 = t1.copy();
+
+    EXPECT_EQ(t1.getShape(), t2.getShape());
+    EXPECT_NE(&t1, &t2);
+    EXPECT_EQ(t1.getData(), t2.getData());
+}
+
+
+TEST_F(TensorTest, ShapeGetter) {
+    const tensorShape shape = tensorShape({2, 3});
+    const tensor t(shape, 2.3);
+
+    const tensorShape& shape_from_tensor = t.getShape();
+
+    EXPECT_EQ(shape_from_tensor, shape);
+    EXPECT_NE(&shape_from_tensor, &shape);
+    EXPECT_EQ(&shape_from_tensor, &t.getShape());
+}
+

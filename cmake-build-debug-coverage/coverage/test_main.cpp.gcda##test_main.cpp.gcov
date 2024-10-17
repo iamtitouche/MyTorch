@@ -1,0 +1,14 @@
+        -:    0:Source:C:/Users/dev/Documents/MyTorch/tests/test_main.cpp
+        -:    0:Graph:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\tests.dir\tests\test_main.cpp.gcno
+        -:    0:Data:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\tests.dir\tests\test_main.cpp.gcda
+        -:    0:Runs:2
+        -:    1:#include <gtest/gtest.h>
+        -:    2:
+function main called 2 returned 100% blocks executed 100%
+        2:    3:int main(int argc, char **argv) {
+        2:    4:    ::testing::InitGoogleTest(&argc, argv);
+        2:    4-block  0
+call    0 returned 2
+        2:    5:    return RUN_ALL_TESTS();
+call    0 returned 2
+        -:    6:}

@@ -3,19 +3,27 @@
 #include <iostream>
 #include <ostream>
 #include <sstream>
+#include <utility>
+#include <numeric>
+
+#include "utils.h"
 
 using namespace std;
 
-tensor::tensor(tensorShape shape) : shape(move(shape)), data(shape.getSize(), 0.0) {}
+tensor::tensor(tensorShape shape) : shape(move(shape)), data(this->shape.getSize(), 0.0) {}
 
-//tensor::tensor(tensorShape shape, double value): shape() {
-//    this->shape = shape.copy();
-//    this->data = vector<double>(shape.getSize(), value);
-//}
+tensor::tensor(tensorShape shape, double value) : shape(move(shape)), data(this->shape.getSize(), value) {}
 
+void tensor::initNormal(double mean, double stddev) {
+    data = normal(getShape().getSize(), mean, stddev);
+}
 
-tensorShape tensor::getShape() const {
+const tensorShape& tensor::getShape() const {
     return shape;
+}
+
+size_t tensor::getSize() const {
+    return data.size();
 }
 
 vector<double> tensor::getData() const {
@@ -212,20 +220,35 @@ tensor tensor::concat(const tensor &other, int dim) const {
     return new_tensor;
 }
 
+string printTensorRecursive(const tensor& t, size_t dim, size_t start, size_t end) {
+    stringstream ss;
+    ss << "[";
+    if (dim == t.getShape().getShape().size() - 1) {
+        for (int i = start; i < end - 1; i++) {
+            ss << t.getData()[i] << ", ";
+        }
+        ss << t.getData()[end - 1];
+    } else {
+        vector<size_t> shape = t.getShape().getShape();
+        size_t dim_size = accumulate(shape.begin() + dim + 1, shape.end(), 1, multiplies<>());
+        size_t i = start;
+
+        while (i < end - dim_size) {
+            ss << printTensorRecursive(t, dim + 1, i, i + dim_size) << ", ";
+            i += dim_size;
+        }
+
+        ss << printTensorRecursive(t, dim + 1, i, i + dim_size);
+
+    }
+
+    ss << "]";
+    return ss.str();
+}
+
 string tensor::toString() const {
     stringstream ss;
-    ss << "Tensor : " << shape.toString() << "\n";
-    cout << "Size " << data.size() << endl;
-    for (size_t i = 0; i < data.size(); i++) {
-        ss << data[i];
-        if (i != data.size() - 1) {
-            ss << ", ";
-        }
-        if ((i + 1) % shape.getShape().back() == 0 && i != data.size() - 1) {
-            ss << "\n ";
-        }
-    }
-    ss << "]";
+    ss << printTensorRecursive(*this, 0, 0, getShape().getSize());
     return ss.str();
 }
 

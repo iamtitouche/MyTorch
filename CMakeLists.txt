@@ -7,6 +7,8 @@ project(MyTorch LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# set(CMAKE_CXX_COMPILER clang++)
+
 set(HEADERS_DIR ${PROJECT_SOURCE_DIR}/headers)
 
 # Ajouter les répertoires pour les fichiers d'en-tête
@@ -25,6 +27,13 @@ set(SOURCE_FILES
         src/main.cpp
         src/tensorshape.cpp
         src/tensor.cpp
+        headers/module.h
+        headers/relu.h
+        src/relu.cpp
+        headers/Dense.h
+        src/dense.cpp
+        headers/utils.h
+        src/utils.cpp
 )
 
 # Créer la bibliothèque principale du projet
@@ -46,6 +55,7 @@ set(TEST_FILES
         tests/test_main.cpp
         tests/test_shape.cpp
         tests/test_tensor.cpp
+        tests/test_utils.cpp
 )
 
 # Créer l'exécutable pour les tests
@@ -58,4 +68,4 @@ target_link_libraries(tests PRIVATE gtest gtest_main mytorch_lib)
 enable_testing()
 
 # Ajouter les tests au projet
-add_test(NAME MyTorchTests COMMAND tests)
+add_test(NAME MyTorchTests COMMAND tests --gtest_color=yes)

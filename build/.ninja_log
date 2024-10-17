@@ -1,0 +1,24 @@
+# ninja log v6
+9	33272	7504471563073194	googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	5b2ba2a6da043454
+2399	34818	7504471586968781	CMakeFiles/mytorch_lib.dir/src/main.cpp.obj	42ac1647e5157437
+4576	37473	7504471608743325	CMakeFiles/mytorch_lib.dir/src/tensorshape.cpp.obj	fdb85118780ec449
+9181	37475	7504471654792873	CMakeFiles/mytorch_lib.dir/src/relu.cpp.obj	a720a81bf90dfa90
+11890	37476	7504471681878788	CMakeFiles/mytorch_lib.dir/src/dense.cpp.obj	3be130657a5d6772
+14204	37478	7504471705012684	CMakeFiles/mytorch_lib.dir/src/utils.cpp.obj	344ca79495ee8ba3
+16657	37479	7504471729550304	googletest/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj	982972696cf1d95d
+19129	37481	7504471754271689	googletest/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	5044e9b4561fe2a6
+21584	37483	7504471778822935	CMakeFiles/main_executable.dir/src/main.cpp.obj	bc50c9bc8c12f18f
+23784	37484	7504471800819096	CMakeFiles/tests.dir/tests/test_main.cpp.obj	e0d799690dcd8c00
+26136	37486	7504471824425718	CMakeFiles/tests.dir/tests/test_shape.cpp.obj	66b47df7d85b297e
+28537	37487	7504471848348917	CMakeFiles/tests.dir/tests/test_tensor.cpp.obj	1249e2f854ad94c7
+30725	37488	7504471870230804	CMakeFiles/tests.dir/tests/test_utils.cpp.obj	33172c26c742719
+33281	37488	7504471895784357	lib/gtest.lib	c3bb65d1c151a464
+34819	40703	7504471911173642	googletest/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj	a004f077e379278c
+37488	40704	7504471937858066	lib/gmock.lib	8da8e5fd4f060ed1
+38915	42280	7504471952126411	lib/gtest_main.lib	d1d485ef8b8f6f1b
+6900	42601	7504471632094550	CMakeFiles/mytorch_lib.dir/src/tensor.cpp.obj	916729981377cb11
+40704	44235	7504471970022090	lib/gmock_main.lib	a833f7a13247e0d2
+42601	45388	7504471988998533	mytorch_lib.lib	dad3b6d2ef959c07
+45388	52079	7504472016856379	main_executable.exe	e79a0f1f0bb49fb7
+47595	54431	7504472038937392	tests.exe	e65a2f5831bc876f
+15	16595	7504472155805750	CMakeFiles/test.util	d86de1aab90ea4

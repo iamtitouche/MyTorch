@@ -1,0 +1,345 @@
+        -:    0:Source:C:/Users/dev/Documents/MyTorch/src/tensorshape.cpp
+        -:    0:Graph:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\mytorch_lib.dir\src\tensorshape.cpp.gcno
+        -:    0:Data:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\mytorch_lib.dir\src\tensorshape.cpp.gcda
+        -:    0:Runs:2
+        -:    1:#include <iostream>
+        -:    2:#include <sstream>
+        -:    3:#include <utility>
+        -:    4:#include <cstdint>
+        -:    5:#include <numeric>
+        -:    6:
+        -:    7:#include "../headers/tensorshape.h"
+        -:    8:
+        -:    9:using namespace std;
+        -:   10:
+function _ZN11tensorShapeC2ESt6vectorIySaIyEE called 35 returned 94% blocks executed 82%
+       35:   11:tensorShape::tensorShape(vector<size_t> shape_vector) {
+       35:   11-block  0
+call    0 returned 35
+       35:   12:    if (shape_vector.empty()) throw invalid_argument("Error : Shape cannot be empty.");
+call    0 returned 35
+branch  1 taken 1 (fallthrough)
+branch  2 taken 34
+        1:   12-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   12-block  1
+call    7 returned 1
+    $$$$$:   12-block  2
+call    8 never executed
+        -:   13:
+      173:   14:    for (const auto& dim : shape_vector) {
+       34:   14-block  0
+call    0 returned 34
+call    1 returned 34
+      140:   14-block  1
+call    2 returned 140
+      139:   14-block  2
+call    3 returned 139
+      173:   14-block  3
+call    4 returned 173
+branch  5 taken 140
+branch  6 taken 33 (fallthrough)
+      140:   15:        if (dim == 0) throw invalid_argument("Error : Dimensions must be greater than 0.");
+branch  0 taken 1 (fallthrough)
+branch  1 taken 139
+        1:   15-block  0
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   15-block  1
+call    6 returned 1
+    $$$$$:   15-block  2
+call    7 never executed
+        -:   16:    }
+        -:   17:
+       33:   18:    shape = vector<size_t>(shape_vector);
+       33:   18-block  0
+call    0 returned 33
+branch  1 taken 33 (fallthrough)
+branch  2 taken 0 (throw)
+       33:   18-block  1
+call    3 returned 33
+call    4 returned 33
+    $$$$$:   18-block  2
+       35:   19:}
+        2:   19-block  0
+call    0 returned 2
+        -:   20:
+function _ZNK11tensorShape7getSizeEv called 13 returned 100% blocks executed 100%
+       13:   21:size_t tensorShape::getSize() const {
+       13:   22:    return accumulate(shape.begin(), shape.end(), 1, multiplies<>());
+       13:   22-block  0
+call    0 returned 13
+call    1 returned 13
+call    2 returned 13
+        -:   23:}
+        -:   24:
+function _ZNK11tensorShape8toStringB5cxx11Ev called 3 returned 100% blocks executed 90%
+        3:   25:string tensorShape::toString() const {
+        3:   26:    stringstream ss;
+        3:   26-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   27:    ss << "tensorShape [";
+        3:   27-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+       15:   28:    for (size_t i = 0; i < shape.size(); ++i) {
+        3:   28-block  0
+       12:   28-block  1
+       15:   28-block  2
+call    0 returned 15
+branch  1 taken 12
+branch  2 taken 3 (fallthrough)
+       12:   29:        ss << shape[i];
+       12:   29-block  0
+call    0 returned 12
+call    1 returned 12
+branch  2 taken 12 (fallthrough)
+branch  3 taken 0 (throw)
+       12:   30:        if (i != shape.size() - 1) {
+       12:   30-block  0
+call    0 returned 12
+branch  1 taken 9 (fallthrough)
+branch  2 taken 3
+        9:   31:            ss << ", ";
+        9:   31-block  0
+call    0 returned 9
+branch  1 taken 9 (fallthrough)
+branch  2 taken 0 (throw)
+        -:   32:        }
+        -:   33:    }
+        3:   34:    ss << "]";
+        3:   34-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        6:   35:    return ss.str();
+        3:   35-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   35-block  1
+        3:   36:}
+        3:   36-block  0
+call    0 returned 3
+    $$$$$:   36-block  1
+call    1 never executed
+        -:   37:
+function _ZNK11tensorShape8getShapeEv called 21 returned 100% blocks executed 100%
+       21:   38:vector<size_t> tensorShape::getShape() const {
+       21:   39:    return shape;
+       21:   39-block  0
+call    0 returned 21
+        -:   40:}
+        -:   41:
+        -:   42:
+function _ZNK11tensorShape8sameSizeERKS_ called 6 returned 100% blocks executed 100%
+        6:   43:bool tensorShape::sameSize(const tensorShape &other) const {
+        6:   44:    return getSize() == other.getSize();
+        6:   44-block  0
+call    0 returned 6
+call    1 returned 6
+        -:   45:}
+        -:   46:
+function _ZNK11tensorShapeeqERKS_ called 6 returned 100% blocks executed 100%
+        6:   47:bool tensorShape::operator==(const tensorShape &other) const {
+        6:   48:    return shape.size() == other.shape.size() && equal(shape.begin(), shape.end(), other.shape.begin());
+        6:   48-block  0
+call    0 returned 6
+call    1 returned 6
+branch  2 taken 6 (fallthrough)
+branch  3 taken 0
+        6:   48-block  1
+call    4 returned 6
+call    5 returned 6
+call    6 returned 6
+call    7 returned 6
+branch  8 taken 4 (fallthrough)
+branch  9 taken 2
+        4:   48-block  2
+        2:   48-block  3
+        6:   48-block  4
+        -:   49:}
+        -:   50:
+function _ZNK11tensorShapeneERKS_ called 3 returned 100% blocks executed 100%
+        3:   51:bool tensorShape::operator!=(const tensorShape &other) const {
+        3:   52:    return !(*this == other);
+        3:   52-block  0
+call    0 returned 3
+        -:   53:}
+        -:   54:
+function _ZN11tensorShape7squeezeESt8optionalIiE called 12 returned 75% blocks executed 82%
+       12:   55:void tensorShape::squeeze(optional<int> dim) {
+       12:   56:    if (dim) { // If a specific dimension is provided
+       12:   56-block  0
+call    0 returned 12
+branch  1 taken 7 (fallthrough)
+branch  2 taken 5
+        7:   57:        const int d = dim.value();
+        7:   57-block  0
+call    0 returned 7
+        7:   58:        if (d < 0 || d >= static_cast<int>(shape.size())) {
+branch  0 taken 7 (fallthrough)
+branch  1 taken 0
+        7:   58-block  0
+call    2 returned 7
+branch  3 taken 1 (fallthrough)
+branch  4 taken 6
+        1:   58-block  1
+        6:   58-block  2
+        7:   58-block  3
+branch  5 taken 1 (fallthrough)
+branch  6 taken 6
+        1:   59:            throw out_of_range("Dimension out of range");
+        1:   59-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   59-block  1
+call    4 returned 0
+    $$$$$:   59-block  2
+call    5 never executed
+        -:   60:        }
+        6:   61:        if (shape[d] != 1) {
+        6:   61-block  0
+call    0 returned 6
+branch  1 taken 2 (fallthrough)
+branch  2 taken 4
+        2:   62:            throw invalid_argument("This tensorShape cannot be squeezed on this dimension");
+        2:   62-block  0
+call    0 returned 2
+call    1 returned 2
+branch  2 taken 2 (fallthrough)
+branch  3 taken 0 (throw)
+        2:   62-block  1
+call    4 returned 0
+    $$$$$:   62-block  2
+call    5 never executed
+        -:   63:        }
+        4:   64:        if (shape.size() == 1) return;
+        4:   64-block  0
+call    0 returned 4
+branch  1 taken 1 (fallthrough)
+branch  2 taken 3
+        1:   64-block  1
+        -:   65:
+        3:   66:        shape.erase(shape.begin() + d);
+        3:   66-block  0
+call    0 returned 3
+call    1 returned 3
+call    2 returned 3
+call    3 returned 3
+branch  4 taken 3 (fallthrough)
+branch  5 taken 0 (throw)
+        3:   66-block  1
+    $$$$$:   66-block  2
+    $$$$$:   66-block  3
+    $$$$$:   66-block  4
+call    6 never executed
+        -:   67:
+        -:   68:    } else { // If no dimension is provided, squeeze all dimensions of size 1
+        5:   69:        if (shape.size() == 1) return;
+        5:   69-block  0
+call    0 returned 5
+branch  1 taken 2 (fallthrough)
+branch  2 taken 3
+        2:   69-block  1
+        2:   69-block  2
+        3:   70:        vector<size_t> new_shape;
+       18:   71:        for (size_t i = 0; i < shape.size(); ++i) {
+        3:   71-block  0
+       15:   71-block  1
+       18:   71-block  2
+call    0 returned 18
+branch  1 taken 15
+branch  2 taken 3 (fallthrough)
+       15:   72:            if (shape[i] != 1) {
+       15:   72-block  0
+call    0 returned 15
+branch  1 taken 12 (fallthrough)
+branch  2 taken 3
+       12:   73:                new_shape.push_back(shape[i]);
+       12:   73-block  0
+call    0 returned 12
+call    1 returned 12
+branch  2 taken 12 (fallthrough)
+branch  3 taken 0 (throw)
+        -:   74:            }
+        -:   75:        }
+        3:   76:        shape = new_shape;
+        3:   76-block  0
+call    0 returned 3
+branch  1 taken 3 (fallthrough)
+branch  2 taken 0 (throw)
+        3:   77:    }
+        3:   77-block  0
+call    0 returned 3
+    $$$$$:   77-block  1
+call    1 never executed
+        -:   78:}
+        -:   79:
+        -:   80:
+function _ZN11tensorShape9unsqueezeEi called 1 returned 100% blocks executed 67%
+        1:   81:void tensorShape::unsqueeze(int dim) {
+        1:   82:    shape.insert(shape.begin() + dim, 1);
+        1:   82-block  0
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+    $$$$$:   82-block  1
+    $$$$$:   82-block  2
+    $$$$$:   82-block  3
+        1:   83:}
+        1:   83-block  0
+        -:   84:
+        -:   85:
+function _ZNK11tensorShape18isConcatCompatibleERKS_i called 5 returned 100% blocks executed 100%
+        5:   86:bool tensorShape::isConcatCompatible(const tensorShape &other, int dim) const {
+        5:   87:    if (shape.size() != other.shape.size()) return false;
+        5:   87-block  0
+call    0 returned 5
+call    1 returned 5
+branch  2 taken 1 (fallthrough)
+branch  3 taken 4
+        1:   87-block  1
+        -:   88:
+       16:   89:    for (size_t i = 0; i < shape.size(); ++i) {
+        4:   89-block  0
+       12:   89-block  1
+       16:   89-block  2
+call    0 returned 16
+branch  1 taken 14
+branch  2 taken 2 (fallthrough)
+       14:   90:        if (i != dim && shape[i] != other.shape[i]) return false;
+       14:   90-block  0
+branch  0 taken 12 (fallthrough)
+branch  1 taken 2
+       12:   90-block  1
+call    2 returned 12
+call    3 returned 12
+branch  4 taken 2 (fallthrough)
+branch  5 taken 10
+        2:   90-block  2
+       12:   90-block  3
+       14:   90-block  4
+branch  6 taken 2 (fallthrough)
+branch  7 taken 12
+        2:   90-block  5
+        -:   91:    }
+        -:   92:
+        2:   93:    return true;
+        2:   93-block  0
+        -:   94:}
+        -:   95:
+        -:   96:

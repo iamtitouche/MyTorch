@@ -1,0 +1,3905 @@
+        -:    0:Source:C:/Users/dev/Documents/MyTorch/tests/test_shape.cpp
+        -:    0:Graph:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\tests.dir\tests\test_shape.cpp.gcno
+        -:    0:Data:C:\Users\dev\Documents\MyTorch\cmake-build-debug-coverage\CMakeFiles\tests.dir\tests\test_shape.cpp.gcda
+        -:    0:Runs:2
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "tensorshape.h"
+        -:    3:
+        -:    4:
+        -:    5:// Test fixture class
+        -:    6:class TensorShapeTest : public ::testing::Test {
+        -:    7:protected:
+function _ZN15TensorShapeTest5SetUpEv called 16 returned 100% blocks executed 100%
+       16:    8:    void SetUp() override {
+        -:    9:        // This function is called before each test
+       16:   10:    }
+        -:   11:
+function _ZN15TensorShapeTest8TearDownEv called 16 returned 100% blocks executed 100%
+       16:   12:    void TearDown() override {
+        -:   13:        // This function is called after each test
+       16:   14:    }
+        -:   15:
+        -:   16:};
+        -:   17:
+        -:   18:// Test constructor with valid shape
+        4:   19:TEST_F(TensorShapeTest, Constructor) {
+        2:   20:    const vector<size_t> v1 = {1, 2, 3};
+        1:   21:    const tensorShape t1(v1);
+       1*:   22:    EXPECT_EQ(t1.getShape().size(), v1.size());
+       1*:   23:    EXPECT_EQ(t1.getShape(), v1);
+       1*:   24:    EXPECT_NE(&(t1.getShape()[0]), &(v1[0]));
+        -:   25:
+        3:   26:    const tensorShape t2 = tensorShape({2, 5, 34, 2});
+       1*:   27:    EXPECT_EQ(t2.getShape().size(), 4);
+       3*:   28:    EXPECT_EQ(t2.getShape(), (vector<size_t>{2, 5, 34, 2}));
+        -:   29:
+        2:   30:    const auto* t3_ptr = new tensorShape({1, 2, 3});
+        2:   31:    const tensorShape t3 = *t3_ptr;
+       1*:   32:    EXPECT_NE(nullptr, t3_ptr);
+       1*:   33:    EXPECT_EQ(t3.getShape().size(), 3);
+       3*:   34:    EXPECT_EQ(t3.getShape(), (vector<size_t>{1, 2, 3}));
+        1:   35:}
+------------------
+_ZN32TensorShapeTest_Constructor_TestC1Ev:
+function _ZN32TensorShapeTest_Constructor_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST_F(TensorShapeTest, Constructor) {
+        1:   19-block  0
+call    0 returned 1
+------------------
+_ZN32TensorShapeTest_Constructor_TestD0Ev:
+function _ZN32TensorShapeTest_Constructor_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST_F(TensorShapeTest, Constructor) {
+        1:   19-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN32TensorShapeTest_Constructor_TestD1Ev:
+function _ZN32TensorShapeTest_Constructor_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   19:TEST_F(TensorShapeTest, Constructor) {
+        1:   19-block  0
+call    0 returned 1
+------------------
+_ZN32TensorShapeTest_Constructor_Test8TestBodyEv:
+function _ZN32TensorShapeTest_Constructor_Test8TestBodyEv called 1 returned 100% blocks executed 30%
+        1:   19:TEST_F(TensorShapeTest, Constructor) {
+        2:   20:    const vector<size_t> v1 = {1, 2, 3};
+        1:   20-block  0
+        1:   20-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+    $$$$$:   20-block  2
+    $$$$$:   20-block  3
+        1:   21:    const tensorShape t1(v1);
+        1:   21-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   21-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   21-block  2
+call    6 returned 1
+    $$$$$:   21-block  3
+call    7 never executed
+    $$$$$:   21-block  4
+       1*:   22:    EXPECT_EQ(t1.getShape().size(), v1.size());
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   22-block  0
+call    4 returned 1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   22-block  1
+call    8 returned 1
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1
+    %%%%%:   22-block  2
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   22-block  3
+call   15 never executed
+call   16 never executed
+branch 17 never executed (fallthrough)
+branch 18 never executed (throw)
+    %%%%%:   22-block  4
+call   19 never executed
+branch 20 never executed (fallthrough)
+branch 21 never executed (throw)
+    %%%%%:   22-block  5
+call   22 never executed
+call   23 never executed
+        1:   22-block  6
+call   24 returned 1
+    $$$$$:   22-block  7
+call   25 never executed
+    $$$$$:   22-block  8
+    $$$$$:   22-block  9
+    $$$$$:   22-block 10
+    $$$$$:   22-block 11
+call   26 never executed
+    $$$$$:   22-block 12
+    $$$$$:   22-block 13
+call   27 never executed
+    $$$$$:   22-block 14
+    $$$$$:   22-block 15
+call   28 never executed
+       1*:   23:    EXPECT_EQ(t1.getShape(), v1);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   23-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   23-block  1
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1
+    %%%%%:   23-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   23-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   23-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   23-block  5
+call   20 never executed
+call   21 never executed
+        1:   23-block  6
+call   22 returned 1
+    $$$$$:   23-block  7
+call   23 never executed
+    $$$$$:   23-block  8
+    $$$$$:   23-block  9
+call   24 never executed
+    $$$$$:   23-block 10
+    $$$$$:   23-block 11
+call   25 never executed
+    $$$$$:   23-block 12
+    $$$$$:   23-block 13
+call   26 never executed
+       1*:   24:    EXPECT_NE(&(t1.getShape()[0]), &(v1[0]));
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+        1:   24-block  0
+call    4 returned 1
+call    5 returned 1
+branch  6 taken 1 (fallthrough)
+branch  7 taken 0 (throw)
+        1:   24-block  1
+call    8 returned 1
+call    9 returned 1
+branch 10 taken 0 (fallthrough)
+branch 11 taken 1
+    %%%%%:   24-block  2
+call   12 never executed
+branch 13 never executed (fallthrough)
+branch 14 never executed (throw)
+    %%%%%:   24-block  3
+call   15 never executed
+call   16 never executed
+branch 17 never executed (fallthrough)
+branch 18 never executed (throw)
+    %%%%%:   24-block  4
+call   19 never executed
+branch 20 never executed (fallthrough)
+branch 21 never executed (throw)
+    %%%%%:   24-block  5
+call   22 never executed
+call   23 never executed
+        1:   24-block  6
+call   24 returned 1
+    $$$$$:   24-block  7
+call   25 never executed
+    $$$$$:   24-block  8
+    $$$$$:   24-block  9
+    $$$$$:   24-block 10
+    $$$$$:   24-block 11
+call   26 never executed
+    $$$$$:   24-block 12
+    $$$$$:   24-block 13
+call   27 never executed
+    $$$$$:   24-block 14
+    $$$$$:   24-block 15
+call   28 never executed
+        -:   25:
+        3:   26:    const tensorShape t2 = tensorShape({2, 5, 34, 2});
+        1:   26-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   26-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   26-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:   26-block  3
+call    8 never executed
+    $$$$$:   26-block  4
+    $$$$$:   26-block  5
+    $$$$$:   26-block  6
+    $$$$$:   26-block  7
+call    9 never executed
+       1*:   27:    EXPECT_EQ(t2.getShape().size(), 4);
+        1:   27-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   27-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   27-block  2
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 0 (fallthrough)
+branch 10 taken 1
+    %%%%%:   27-block  3
+call   11 never executed
+branch 12 never executed (fallthrough)
+branch 13 never executed (throw)
+    %%%%%:   27-block  4
+call   14 never executed
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   27-block  5
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   27-block  6
+call   21 never executed
+call   22 never executed
+        1:   27-block  7
+call   23 returned 1
+    $$$$$:   27-block  8
+call   24 never executed
+    $$$$$:   27-block  9
+    $$$$$:   27-block 10
+    $$$$$:   27-block 11
+    $$$$$:   27-block 12
+call   25 never executed
+    $$$$$:   27-block 13
+    $$$$$:   27-block 14
+call   26 never executed
+    $$$$$:   27-block 15
+    $$$$$:   27-block 16
+call   27 never executed
+       3*:   28:    EXPECT_EQ(t2.getShape(), (vector<size_t>{2, 5, 34, 2}));
+        1:   28-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   28-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   28-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   28-block  3
+call    9 returned 1
+call   10 returned 1
+        1:   28-block  4
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   28-block  5
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   28-block  6
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   28-block  7
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   28-block  8
+call   24 never executed
+call   25 never executed
+        1:   28-block  9
+call   26 returned 1
+    $$$$$:   28-block 10
+call   27 never executed
+    $$$$$:   28-block 11
+    $$$$$:   28-block 12
+call   28 never executed
+    $$$$$:   28-block 13
+    $$$$$:   28-block 14
+    $$$$$:   28-block 15
+    $$$$$:   28-block 16
+call   29 never executed
+    $$$$$:   28-block 17
+    $$$$$:   28-block 18
+call   30 never executed
+    $$$$$:   28-block 19
+    $$$$$:   28-block 20
+call   31 never executed
+        -:   29:
+        2:   30:    const auto* t3_ptr = new tensorShape({1, 2, 3});
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   30-block  0
+        1:   30-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   30-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   30-block  3
+call    9 returned 1
+    $$$$$:   30-block  4
+call   10 never executed
+    $$$$$:   30-block  5
+    $$$$$:   30-block  6
+    $$$$$:   30-block  7
+    $$$$$:   30-block  8
+branch 11 never executed (fallthrough)
+branch 12 never executed
+    $$$$$:   30-block  9
+call   13 never executed
+        2:   31:    const tensorShape t3 = *t3_ptr;
+        1:   31-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+    $$$$$:   31-block  1
+call    4 never executed
+       1*:   32:    EXPECT_NE(nullptr, t3_ptr);
+        1:   32-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   32-block  1
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   32-block  2
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   32-block  3
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   32-block  4
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   32-block  5
+call   16 never executed
+call   17 never executed
+        1:   32-block  6
+call   18 returned 1
+    $$$$$:   32-block  7
+    $$$$$:   32-block  8
+call   19 never executed
+    $$$$$:   32-block  9
+    $$$$$:   32-block 10
+call   20 never executed
+    $$$$$:   32-block 11
+    $$$$$:   32-block 12
+call   21 never executed
+       1*:   33:    EXPECT_EQ(t3.getShape().size(), 3);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   33-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   33-block  1
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 0 (fallthrough)
+branch 10 taken 1
+    %%%%%:   33-block  2
+call   11 never executed
+branch 12 never executed (fallthrough)
+branch 13 never executed (throw)
+    %%%%%:   33-block  3
+call   14 never executed
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:   33-block  4
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   33-block  5
+call   21 never executed
+call   22 never executed
+        1:   33-block  6
+call   23 returned 1
+    $$$$$:   33-block  7
+call   24 never executed
+    $$$$$:   33-block  8
+    $$$$$:   33-block  9
+    $$$$$:   33-block 10
+    $$$$$:   33-block 11
+call   25 never executed
+    $$$$$:   33-block 12
+    $$$$$:   33-block 13
+call   26 never executed
+    $$$$$:   33-block 14
+    $$$$$:   33-block 15
+call   27 never executed
+       3*:   34:    EXPECT_EQ(t3.getShape(), (vector<size_t>{1, 2, 3}));
+        1:   34-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   34-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   34-block  2
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   34-block  3
+call    9 returned 1
+call   10 returned 1
+        1:   34-block  4
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   34-block  5
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   34-block  6
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   34-block  7
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   34-block  8
+call   24 never executed
+call   25 never executed
+        1:   34-block  9
+call   26 returned 1
+    $$$$$:   34-block 10
+call   27 never executed
+    $$$$$:   34-block 11
+    $$$$$:   34-block 12
+call   28 never executed
+    $$$$$:   34-block 13
+    $$$$$:   34-block 14
+    $$$$$:   34-block 15
+    $$$$$:   34-block 16
+call   29 never executed
+    $$$$$:   34-block 17
+    $$$$$:   34-block 18
+call   30 never executed
+    $$$$$:   34-block 19
+    $$$$$:   34-block 20
+call   31 never executed
+        1:   35:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   35-block  0
+call    2 never executed
+    $$$$$:   35-block  1
+call    3 never executed
+------------------
+        -:   36:
+        -:   37:// Test copy constructor
+        4:   38:TEST_F(TensorShapeTest, CopyConstructor) {
+        2:   39:    tensorShape t1({13, 23, 3, 45});
+        1:   40:    const tensorShape t2 = tensorShape(t1);
+       1*:   41:    EXPECT_EQ(t1.getShape().size(), t2.getShape().size());
+       1*:   42:    EXPECT_EQ(t1.getShape(), t2.getShape());
+       1*:   43:    EXPECT_NE(&(t1), &(t2));
+        1:   44:}
+------------------
+_ZN36TensorShapeTest_CopyConstructor_TestC1Ev:
+function _ZN36TensorShapeTest_CopyConstructor_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   38:TEST_F(TensorShapeTest, CopyConstructor) {
+        1:   38-block  0
+call    0 returned 1
+------------------
+_ZN36TensorShapeTest_CopyConstructor_TestD0Ev:
+function _ZN36TensorShapeTest_CopyConstructor_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   38:TEST_F(TensorShapeTest, CopyConstructor) {
+        1:   38-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN36TensorShapeTest_CopyConstructor_TestD1Ev:
+function _ZN36TensorShapeTest_CopyConstructor_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   38:TEST_F(TensorShapeTest, CopyConstructor) {
+        1:   38-block  0
+call    0 returned 1
+------------------
+_ZN36TensorShapeTest_CopyConstructor_Test8TestBodyEv:
+function _ZN36TensorShapeTest_CopyConstructor_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:   38:TEST_F(TensorShapeTest, CopyConstructor) {
+        2:   39:    tensorShape t1({13, 23, 3, 45});
+        1:   39-block  0
+        1:   39-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   39-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   39-block  3
+call    6 returned 1
+    $$$$$:   39-block  4
+call    7 never executed
+    $$$$$:   39-block  5
+    $$$$$:   39-block  6
+    $$$$$:   39-block  7
+        1:   40:    const tensorShape t2 = tensorShape(t1);
+        1:   40-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       1*:   41:    EXPECT_EQ(t1.getShape().size(), t2.getShape().size());
+        1:   41-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   41-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   41-block  2
+call    7 returned 1
+call    8 returned 1
+branch  9 taken 1 (fallthrough)
+branch 10 taken 0 (throw)
+        1:   41-block  3
+call   11 returned 1
+call   12 returned 1
+call   13 returned 1
+branch 14 taken 0 (fallthrough)
+branch 15 taken 1
+    %%%%%:   41-block  4
+call   16 never executed
+branch 17 never executed (fallthrough)
+branch 18 never executed (throw)
+    %%%%%:   41-block  5
+call   19 never executed
+call   20 never executed
+branch 21 never executed (fallthrough)
+branch 22 never executed (throw)
+    %%%%%:   41-block  6
+call   23 never executed
+branch 24 never executed (fallthrough)
+branch 25 never executed (throw)
+    %%%%%:   41-block  7
+call   26 never executed
+call   27 never executed
+        1:   41-block  8
+call   28 returned 1
+    $$$$$:   41-block  9
+call   29 never executed
+    $$$$$:   41-block 10
+    $$$$$:   41-block 11
+    $$$$$:   41-block 12
+call   30 never executed
+    $$$$$:   41-block 13
+    $$$$$:   41-block 14
+    $$$$$:   41-block 15
+call   31 never executed
+    $$$$$:   41-block 16
+    $$$$$:   41-block 17
+call   32 never executed
+    $$$$$:   41-block 18
+    $$$$$:   41-block 19
+call   33 never executed
+       1*:   42:    EXPECT_EQ(t1.getShape(), t2.getShape());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   42-block  0
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   42-block  1
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   42-block  2
+call    9 returned 1
+call   10 returned 1
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   42-block  3
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   42-block  4
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   42-block  5
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   42-block  6
+call   24 never executed
+call   25 never executed
+        1:   42-block  7
+call   26 returned 1
+    $$$$$:   42-block  8
+call   27 never executed
+    $$$$$:   42-block  9
+    $$$$$:   42-block 10
+call   28 never executed
+    $$$$$:   42-block 11
+    $$$$$:   42-block 12
+call   29 never executed
+    $$$$$:   42-block 13
+    $$$$$:   42-block 14
+call   30 never executed
+    $$$$$:   42-block 15
+    $$$$$:   42-block 16
+call   31 never executed
+       1*:   43:    EXPECT_NE(&(t1), &(t2));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   43-block  0
+call    3 returned 1
+branch  4 taken 0 (fallthrough)
+branch  5 taken 1
+    %%%%%:   43-block  1
+call    6 never executed
+branch  7 never executed (fallthrough)
+branch  8 never executed (throw)
+    %%%%%:   43-block  2
+call    9 never executed
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   43-block  3
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   43-block  4
+call   16 never executed
+call   17 never executed
+        1:   43-block  5
+call   18 returned 1
+    $$$$$:   43-block  6
+    $$$$$:   43-block  7
+    $$$$$:   43-block  8
+call   19 never executed
+    $$$$$:   43-block  9
+    $$$$$:   43-block 10
+call   20 never executed
+    $$$$$:   43-block 11
+    $$$$$:   43-block 12
+call   21 never executed
+        1:   44:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   44-block  0
+call    2 never executed
+    $$$$$:   44-block  1
+call    3 never executed
+------------------
+        -:   45:
+        -:   46:// Test constructor throws exception for zero dimension
+        4:   47:TEST_F(TensorShapeTest, ConstructorInvalidArgumentZeroValue) {
+       4*:   48:    EXPECT_THROW(tensorShape t({1, 2, 0});, invalid_argument);
+        1:   49:}
+------------------
+_ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestC1Ev:
+function _ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   47:TEST_F(TensorShapeTest, ConstructorInvalidArgumentZeroValue) {
+        1:   47-block  0
+call    0 returned 1
+------------------
+_ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestD0Ev:
+function _ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   47:TEST_F(TensorShapeTest, ConstructorInvalidArgumentZeroValue) {
+        1:   47-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestD1Ev:
+function _ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   47:TEST_F(TensorShapeTest, ConstructorInvalidArgumentZeroValue) {
+        1:   47-block  0
+call    0 returned 1
+------------------
+_ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_Test8TestBodyEv:
+function _ZN56TensorShapeTest_ConstructorInvalidArgumentZeroValue_Test8TestBodyEv called 1 returned 100% blocks executed 36%
+        1:   47:TEST_F(TensorShapeTest, ConstructorInvalidArgumentZeroValue) {
+       4*:   48:    EXPECT_THROW(tensorShape t({1, 2, 0});, invalid_argument);
+        1:   48-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   48-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   48-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:   48-block  3
+        1:   48-block  4
+call    9 returned 1
+branch 10 taken 1 (fallthrough)
+branch 11 taken 0 (throw)
+        1:   48-block  5
+call   12 returned 1
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1 (throw)
+    %%%%%:   48-block  6
+call   15 never executed
+    %%%%%:   48-block  7
+call   16 never executed
+        1:   48-block  8
+branch 17 taken 0 (fallthrough)
+branch 18 taken 1
+    %%%%%:   48-block  9
+call   19 never executed
+branch 20 never executed (fallthrough)
+branch 21 never executed (throw)
+    %%%%%:   48-block 10
+    %%%%%:   48-block 11
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:   48-block 12
+call   25 never executed
+call   26 never executed
+branch 27 never executed (fallthrough)
+branch 28 never executed (throw)
+    %%%%%:   48-block 13
+call   29 never executed
+branch 30 never executed (fallthrough)
+branch 31 never executed (throw)
+    %%%%%:   48-block 14
+call   32 never executed
+call   33 never executed
+        1:   48-block 15
+call   34 returned 1
+        1:   48-block 16
+call   35 returned 1
+        1:   48-block 17
+        1:   48-block 18
+        1:   48-block 19
+        1:   48-block 20
+branch 36 taken 1
+branch 37 taken 0
+branch 38 taken 0
+        1:   48-block 21
+call   39 returned 1
+call   40 returned 1
+    $$$$$:   48-block 22
+call   41 never executed
+call   42 never executed
+branch 43 never executed (fallthrough)
+branch 44 never executed (throw)
+    $$$$$:   48-block 23
+call   45 never executed
+branch 46 never executed (fallthrough)
+branch 47 never executed (throw)
+    $$$$$:   48-block 24
+call   48 never executed
+branch 49 never executed (fallthrough)
+branch 50 never executed (throw)
+    $$$$$:   48-block 25
+call   51 never executed
+call   52 never executed
+branch 53 never executed (fallthrough)
+branch 54 never executed (throw)
+    $$$$$:   48-block 26
+call   55 never executed
+call   56 never executed
+branch 57 never executed (fallthrough)
+branch 58 never executed (throw)
+    $$$$$:   48-block 27
+call   59 never executed
+branch 60 never executed (fallthrough)
+branch 61 never executed (throw)
+    $$$$$:   48-block 28
+    $$$$$:   48-block 29
+call   62 never executed
+    $$$$$:   48-block 30
+call   63 never executed
+call   64 never executed
+branch 65 never executed (fallthrough)
+branch 66 never executed (throw)
+    $$$$$:   48-block 31
+    $$$$$:   48-block 32
+call   67 never executed
+branch 68 never executed (fallthrough)
+branch 69 never executed (throw)
+    $$$$$:   48-block 33
+call   70 never executed
+    $$$$$:   48-block 34
+    $$$$$:   48-block 35
+call   71 never executed
+    $$$$$:   48-block 36
+call   72 never executed
+    $$$$$:   48-block 37
+call   73 never executed
+    $$$$$:   48-block 38
+    $$$$$:   48-block 39
+call   74 never executed
+    $$$$$:   48-block 40
+    $$$$$:   48-block 41
+call   75 never executed
+        1:   49:}
+------------------
+        -:   50:
+        -:   51:// Test constructor throws exception for empty shape
+        4:   52:TEST_F(TensorShapeTest, ConstructorInvalidArgumentEmptyVector) {
+       3*:   53:    EXPECT_THROW(tensorShape t({});, invalid_argument);
+        1:   54:}
+------------------
+_ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestC1Ev:
+function _ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   52:TEST_F(TensorShapeTest, ConstructorInvalidArgumentEmptyVector) {
+        1:   52-block  0
+call    0 returned 1
+------------------
+_ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestD0Ev:
+function _ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   52:TEST_F(TensorShapeTest, ConstructorInvalidArgumentEmptyVector) {
+        1:   52-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestD1Ev:
+function _ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   52:TEST_F(TensorShapeTest, ConstructorInvalidArgumentEmptyVector) {
+        1:   52-block  0
+call    0 returned 1
+------------------
+_ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_Test8TestBodyEv:
+function _ZN58TensorShapeTest_ConstructorInvalidArgumentEmptyVector_Test8TestBodyEv called 1 returned 100% blocks executed 30%
+        1:   52:TEST_F(TensorShapeTest, ConstructorInvalidArgumentEmptyVector) {
+       3*:   53:    EXPECT_THROW(tensorShape t({});, invalid_argument);
+        1:   53-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:   53-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:   53-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:   53-block  3
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1 (throw)
+    %%%%%:   53-block  4
+call   13 never executed
+call   14 never executed
+        1:   53-block  5
+branch 15 taken 0 (fallthrough)
+branch 16 taken 1
+    %%%%%:   53-block  6
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   53-block  7
+    %%%%%:   53-block  8
+call   20 never executed
+branch 21 never executed (fallthrough)
+branch 22 never executed (throw)
+    %%%%%:   53-block  9
+call   23 never executed
+call   24 never executed
+branch 25 never executed (fallthrough)
+branch 26 never executed (throw)
+    %%%%%:   53-block 10
+call   27 never executed
+branch 28 never executed (fallthrough)
+branch 29 never executed (throw)
+    %%%%%:   53-block 11
+call   30 never executed
+call   31 never executed
+        1:   53-block 12
+call   32 returned 1
+        1:   53-block 13
+call   33 returned 1
+        1:   53-block 14
+        1:   53-block 15
+branch 34 taken 1
+branch 35 taken 0
+branch 36 taken 0
+        1:   53-block 16
+call   37 returned 1
+call   38 returned 1
+    $$$$$:   53-block 17
+call   39 never executed
+call   40 never executed
+branch 41 never executed (fallthrough)
+branch 42 never executed (throw)
+    $$$$$:   53-block 18
+call   43 never executed
+branch 44 never executed (fallthrough)
+branch 45 never executed (throw)
+    $$$$$:   53-block 19
+call   46 never executed
+branch 47 never executed (fallthrough)
+branch 48 never executed (throw)
+    $$$$$:   53-block 20
+call   49 never executed
+call   50 never executed
+branch 51 never executed (fallthrough)
+branch 52 never executed (throw)
+    $$$$$:   53-block 21
+call   53 never executed
+call   54 never executed
+branch 55 never executed (fallthrough)
+branch 56 never executed (throw)
+    $$$$$:   53-block 22
+call   57 never executed
+branch 58 never executed (fallthrough)
+branch 59 never executed (throw)
+    $$$$$:   53-block 23
+    $$$$$:   53-block 24
+call   60 never executed
+    $$$$$:   53-block 25
+call   61 never executed
+call   62 never executed
+branch 63 never executed (fallthrough)
+branch 64 never executed (throw)
+    $$$$$:   53-block 26
+    $$$$$:   53-block 27
+call   65 never executed
+branch 66 never executed (fallthrough)
+branch 67 never executed (throw)
+    $$$$$:   53-block 28
+call   68 never executed
+    $$$$$:   53-block 29
+    $$$$$:   53-block 30
+call   69 never executed
+    $$$$$:   53-block 31
+call   70 never executed
+    $$$$$:   53-block 32
+call   71 never executed
+    $$$$$:   53-block 33
+    $$$$$:   53-block 34
+call   72 never executed
+    $$$$$:   53-block 35
+    $$$$$:   53-block 36
+call   73 never executed
+        1:   54:}
+------------------
+        -:   55:
+        -:   56:// Test getSize function for correctness
+        4:   57:TEST_F(TensorShapeTest, getSize) {
+        2:   58:    const tensorShape t1({1, 2, 3, 678});
+       1*:   59:    EXPECT_EQ(t1.getSize(), 4068);
+        1:   60:}
+------------------
+_ZN28TensorShapeTest_getSize_TestC1Ev:
+function _ZN28TensorShapeTest_getSize_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   57:TEST_F(TensorShapeTest, getSize) {
+        1:   57-block  0
+call    0 returned 1
+------------------
+_ZN28TensorShapeTest_getSize_TestD0Ev:
+function _ZN28TensorShapeTest_getSize_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   57:TEST_F(TensorShapeTest, getSize) {
+        1:   57-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN28TensorShapeTest_getSize_TestD1Ev:
+function _ZN28TensorShapeTest_getSize_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   57:TEST_F(TensorShapeTest, getSize) {
+        1:   57-block  0
+call    0 returned 1
+------------------
+_ZN28TensorShapeTest_getSize_Test8TestBodyEv:
+function _ZN28TensorShapeTest_getSize_Test8TestBodyEv called 1 returned 100% blocks executed 34%
+        1:   57:TEST_F(TensorShapeTest, getSize) {
+        2:   58:    const tensorShape t1({1, 2, 3, 678});
+        1:   58-block  0
+        1:   58-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   58-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   58-block  3
+call    6 returned 1
+    $$$$$:   58-block  4
+call    7 never executed
+    $$$$$:   58-block  5
+    $$$$$:   58-block  6
+    $$$$$:   58-block  7
+       1*:   59:    EXPECT_EQ(t1.getSize(), 4068);
+        1:   59-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   59-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   59-block  2
+call    6 returned 1
+branch  7 taken 0 (fallthrough)
+branch  8 taken 1
+    %%%%%:   59-block  3
+call    9 never executed
+branch 10 never executed (fallthrough)
+branch 11 never executed (throw)
+    %%%%%:   59-block  4
+call   12 never executed
+call   13 never executed
+branch 14 never executed (fallthrough)
+branch 15 never executed (throw)
+    %%%%%:   59-block  5
+call   16 never executed
+branch 17 never executed (fallthrough)
+branch 18 never executed (throw)
+    %%%%%:   59-block  6
+call   19 never executed
+call   20 never executed
+        1:   59-block  7
+call   21 returned 1
+    $$$$$:   59-block  8
+    $$$$$:   59-block  9
+    $$$$$:   59-block 10
+call   22 never executed
+    $$$$$:   59-block 11
+    $$$$$:   59-block 12
+call   23 never executed
+    $$$$$:   59-block 13
+    $$$$$:   59-block 14
+call   24 never executed
+        1:   60:}
+call    0 returned 1
+    $$$$$:   60-block  0
+call    1 never executed
+------------------
+        -:   61:
+        -:   62:// Test equality operator
+        4:   63:TEST_F(TensorShapeTest, Equal) {
+        2:   64:    const tensorShape t1({1, 2, 3, 678});
+        2:   65:    const tensorShape t2({1, 2, 3, 678});
+       1*:   66:    EXPECT_TRUE(t1 == t2);
+       1*:   67:    EXPECT_TRUE(t1 == t1);
+        -:   68:
+        3:   69:    const tensorShape t3({1, 2, 4, 678});
+       1*:   70:    EXPECT_FALSE(t1 == t3);
+        1:   71:}
+------------------
+_ZN26TensorShapeTest_Equal_TestC1Ev:
+function _ZN26TensorShapeTest_Equal_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   63:TEST_F(TensorShapeTest, Equal) {
+        1:   63-block  0
+call    0 returned 1
+------------------
+_ZN26TensorShapeTest_Equal_TestD0Ev:
+function _ZN26TensorShapeTest_Equal_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   63:TEST_F(TensorShapeTest, Equal) {
+        1:   63-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN26TensorShapeTest_Equal_TestD1Ev:
+function _ZN26TensorShapeTest_Equal_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   63:TEST_F(TensorShapeTest, Equal) {
+        1:   63-block  0
+call    0 returned 1
+------------------
+_ZN26TensorShapeTest_Equal_Test8TestBodyEv:
+function _ZN26TensorShapeTest_Equal_Test8TestBodyEv called 1 returned 100% blocks executed 29%
+        1:   63:TEST_F(TensorShapeTest, Equal) {
+        2:   64:    const tensorShape t1({1, 2, 3, 678});
+        1:   64-block  0
+        1:   64-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   64-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   64-block  3
+call    6 returned 1
+    $$$$$:   64-block  4
+call    7 never executed
+    $$$$$:   64-block  5
+    $$$$$:   64-block  6
+    $$$$$:   64-block  7
+        2:   65:    const tensorShape t2({1, 2, 3, 678});
+        1:   65-block  0
+        1:   65-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   65-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   65-block  3
+call    6 returned 1
+    $$$$$:   65-block  4
+call    7 never executed
+    $$$$$:   65-block  5
+    $$$$$:   65-block  6
+    $$$$$:   65-block  7
+       1*:   66:    EXPECT_TRUE(t1 == t2);
+        1:   66-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   66-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   66-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   66-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   66-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   66-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   66-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   66-block  7
+call   23 returned 1
+    $$$$$:   66-block  8
+    $$$$$:   66-block  9
+call   24 never executed
+    $$$$$:   66-block 10
+call   25 never executed
+    $$$$$:   66-block 11
+    $$$$$:   66-block 12
+    $$$$$:   66-block 13
+call   26 never executed
+    $$$$$:   66-block 14
+    $$$$$:   66-block 15
+call   27 never executed
+       1*:   67:    EXPECT_TRUE(t1 == t1);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   67-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   67-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   67-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   67-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   67-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   67-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   67-block  6
+call   23 returned 1
+    $$$$$:   67-block  7
+    $$$$$:   67-block  8
+call   24 never executed
+    $$$$$:   67-block  9
+call   25 never executed
+    $$$$$:   67-block 10
+    $$$$$:   67-block 11
+    $$$$$:   67-block 12
+call   26 never executed
+    $$$$$:   67-block 13
+    $$$$$:   67-block 14
+call   27 never executed
+        -:   68:
+        3:   69:    const tensorShape t3({1, 2, 4, 678});
+        1:   69-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   69-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   69-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:   69-block  3
+call    8 never executed
+    $$$$$:   69-block  4
+    $$$$$:   69-block  5
+    $$$$$:   69-block  6
+    $$$$$:   69-block  7
+call    9 never executed
+       1*:   70:    EXPECT_FALSE(t1 == t3);
+        1:   70-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   70-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   70-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   70-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   70-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   70-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   70-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   70-block  7
+call   23 returned 1
+    $$$$$:   70-block  8
+    $$$$$:   70-block  9
+call   24 never executed
+    $$$$$:   70-block 10
+call   25 never executed
+    $$$$$:   70-block 11
+    $$$$$:   70-block 12
+    $$$$$:   70-block 13
+call   26 never executed
+    $$$$$:   70-block 14
+    $$$$$:   70-block 15
+call   27 never executed
+        1:   71:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   71-block  0
+call    2 never executed
+    $$$$$:   71-block  1
+call    3 never executed
+------------------
+        -:   72:
+        -:   73:// Test inequality operator
+        4:   74:TEST_F(TensorShapeTest, NotEqual) {
+        2:   75:    const tensorShape t1({1, 2, 3, 678});
+        2:   76:    const tensorShape t2({1, 2, 3, 678});
+       1*:   77:    EXPECT_FALSE(t1 != t2);
+       1*:   78:    EXPECT_FALSE(t1 != t1);
+        -:   79:
+        3:   80:    const tensorShape t3({1, 2, 4, 678});
+       1*:   81:    EXPECT_TRUE(t1 != t3);
+        1:   82:}
+------------------
+_ZN29TensorShapeTest_NotEqual_TestC1Ev:
+function _ZN29TensorShapeTest_NotEqual_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   74:TEST_F(TensorShapeTest, NotEqual) {
+        1:   74-block  0
+call    0 returned 1
+------------------
+_ZN29TensorShapeTest_NotEqual_TestD0Ev:
+function _ZN29TensorShapeTest_NotEqual_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   74:TEST_F(TensorShapeTest, NotEqual) {
+        1:   74-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN29TensorShapeTest_NotEqual_TestD1Ev:
+function _ZN29TensorShapeTest_NotEqual_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   74:TEST_F(TensorShapeTest, NotEqual) {
+        1:   74-block  0
+call    0 returned 1
+------------------
+_ZN29TensorShapeTest_NotEqual_Test8TestBodyEv:
+function _ZN29TensorShapeTest_NotEqual_Test8TestBodyEv called 1 returned 100% blocks executed 29%
+        1:   74:TEST_F(TensorShapeTest, NotEqual) {
+        2:   75:    const tensorShape t1({1, 2, 3, 678});
+        1:   75-block  0
+        1:   75-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   75-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   75-block  3
+call    6 returned 1
+    $$$$$:   75-block  4
+call    7 never executed
+    $$$$$:   75-block  5
+    $$$$$:   75-block  6
+    $$$$$:   75-block  7
+        2:   76:    const tensorShape t2({1, 2, 3, 678});
+        1:   76-block  0
+        1:   76-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   76-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   76-block  3
+call    6 returned 1
+    $$$$$:   76-block  4
+call    7 never executed
+    $$$$$:   76-block  5
+    $$$$$:   76-block  6
+    $$$$$:   76-block  7
+       1*:   77:    EXPECT_FALSE(t1 != t2);
+        1:   77-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   77-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   77-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   77-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   77-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   77-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   77-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   77-block  7
+call   23 returned 1
+    $$$$$:   77-block  8
+    $$$$$:   77-block  9
+call   24 never executed
+    $$$$$:   77-block 10
+call   25 never executed
+    $$$$$:   77-block 11
+    $$$$$:   77-block 12
+    $$$$$:   77-block 13
+call   26 never executed
+    $$$$$:   77-block 14
+    $$$$$:   77-block 15
+call   27 never executed
+       1*:   78:    EXPECT_FALSE(t1 != t1);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   78-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   78-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   78-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   78-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   78-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   78-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   78-block  6
+call   23 returned 1
+    $$$$$:   78-block  7
+    $$$$$:   78-block  8
+call   24 never executed
+    $$$$$:   78-block  9
+call   25 never executed
+    $$$$$:   78-block 10
+    $$$$$:   78-block 11
+    $$$$$:   78-block 12
+call   26 never executed
+    $$$$$:   78-block 13
+    $$$$$:   78-block 14
+call   27 never executed
+        -:   79:
+        3:   80:    const tensorShape t3({1, 2, 4, 678});
+        1:   80-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   80-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   80-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:   80-block  3
+call    8 never executed
+    $$$$$:   80-block  4
+    $$$$$:   80-block  5
+    $$$$$:   80-block  6
+    $$$$$:   80-block  7
+call    9 never executed
+       1*:   81:    EXPECT_TRUE(t1 != t3);
+        1:   81-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   81-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:   81-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:   81-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:   81-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   81-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:   81-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:   81-block  7
+call   23 returned 1
+    $$$$$:   81-block  8
+    $$$$$:   81-block  9
+call   24 never executed
+    $$$$$:   81-block 10
+call   25 never executed
+    $$$$$:   81-block 11
+    $$$$$:   81-block 12
+    $$$$$:   81-block 13
+call   26 never executed
+    $$$$$:   81-block 14
+    $$$$$:   81-block 15
+call   27 never executed
+        1:   82:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:   82-block  0
+call    2 never executed
+    $$$$$:   82-block  1
+call    3 never executed
+------------------
+        -:   83:
+        -:   84:// Test squeeze function without arguments
+        4:   85:TEST_F(TensorShapeTest, SqueezeWithoutArgument) {
+        2:   86:    tensorShape t1({1, 2, 3, 1, 7});
+        1:   87:    t1.squeeze();
+       4*:   88:    EXPECT_EQ(t1.getShape(), (vector<size_t>{2, 3, 7}));
+        -:   89:
+        3:   90:    tensorShape t2({3, 2, 3, 34, 7});
+        1:   91:    t2.squeeze();
+       3*:   92:    EXPECT_EQ(t2.getShape(), (vector<size_t>{3, 2, 3, 34, 7}));
+        -:   93:
+        3:   94:    tensorShape t3({44, 2, 3, 3, 1});
+        1:   95:    t3.squeeze();
+       3*:   96:    EXPECT_EQ(t3.getShape(), (vector<size_t>{44, 2, 3, 3}));
+        1:   97:}
+------------------
+_ZN43TensorShapeTest_SqueezeWithoutArgument_TestC1Ev:
+function _ZN43TensorShapeTest_SqueezeWithoutArgument_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:   85:TEST_F(TensorShapeTest, SqueezeWithoutArgument) {
+        1:   85-block  0
+call    0 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeWithoutArgument_TestD0Ev:
+function _ZN43TensorShapeTest_SqueezeWithoutArgument_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:   85:TEST_F(TensorShapeTest, SqueezeWithoutArgument) {
+        1:   85-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeWithoutArgument_TestD1Ev:
+function _ZN43TensorShapeTest_SqueezeWithoutArgument_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:   85:TEST_F(TensorShapeTest, SqueezeWithoutArgument) {
+        1:   85-block  0
+call    0 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeWithoutArgument_Test8TestBodyEv:
+function _ZN43TensorShapeTest_SqueezeWithoutArgument_Test8TestBodyEv called 1 returned 100% blocks executed 36%
+        1:   85:TEST_F(TensorShapeTest, SqueezeWithoutArgument) {
+        2:   86:    tensorShape t1({1, 2, 3, 1, 7});
+        1:   86-block  0
+        1:   86-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   86-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   86-block  3
+call    6 returned 1
+    $$$$$:   86-block  4
+call    7 never executed
+    $$$$$:   86-block  5
+    $$$$$:   86-block  6
+    $$$$$:   86-block  7
+        1:   87:    t1.squeeze();
+        1:   87-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   87-block  1
+       4*:   88:    EXPECT_EQ(t1.getShape(), (vector<size_t>{2, 3, 7}));
+        1:   88-block  0
+        1:   88-block  1
+        1:   88-block  2
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   88-block  3
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   88-block  4
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   88-block  5
+call    9 returned 1
+call   10 returned 1
+        1:   88-block  6
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   88-block  7
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   88-block  8
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   88-block  9
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   88-block 10
+call   24 never executed
+call   25 never executed
+        1:   88-block 11
+call   26 returned 1
+    $$$$$:   88-block 12
+call   27 never executed
+    $$$$$:   88-block 13
+    $$$$$:   88-block 14
+call   28 never executed
+    $$$$$:   88-block 15
+    $$$$$:   88-block 16
+    $$$$$:   88-block 17
+    $$$$$:   88-block 18
+call   29 never executed
+    $$$$$:   88-block 19
+    $$$$$:   88-block 20
+call   30 never executed
+    $$$$$:   88-block 21
+    $$$$$:   88-block 22
+call   31 never executed
+        -:   89:
+        3:   90:    tensorShape t2({3, 2, 3, 34, 7});
+        1:   90-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   90-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   90-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:   90-block  3
+call    8 never executed
+    $$$$$:   90-block  4
+    $$$$$:   90-block  5
+    $$$$$:   90-block  6
+    $$$$$:   90-block  7
+call    9 never executed
+        1:   91:    t2.squeeze();
+        1:   91-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   91-block  1
+       3*:   92:    EXPECT_EQ(t2.getShape(), (vector<size_t>{3, 2, 3, 34, 7}));
+        1:   92-block  0
+        1:   92-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   92-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   92-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   92-block  4
+call    9 returned 1
+call   10 returned 1
+        1:   92-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   92-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   92-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   92-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   92-block  9
+call   24 never executed
+call   25 never executed
+        1:   92-block 10
+call   26 returned 1
+    $$$$$:   92-block 11
+call   27 never executed
+    $$$$$:   92-block 12
+    $$$$$:   92-block 13
+call   28 never executed
+    $$$$$:   92-block 14
+    $$$$$:   92-block 15
+    $$$$$:   92-block 16
+    $$$$$:   92-block 17
+call   29 never executed
+    $$$$$:   92-block 18
+    $$$$$:   92-block 19
+call   30 never executed
+    $$$$$:   92-block 20
+    $$$$$:   92-block 21
+call   31 never executed
+        -:   93:
+        3:   94:    tensorShape t3({44, 2, 3, 3, 1});
+        1:   94-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   94-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   94-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:   94-block  3
+call    8 never executed
+    $$$$$:   94-block  4
+    $$$$$:   94-block  5
+    $$$$$:   94-block  6
+    $$$$$:   94-block  7
+call    9 never executed
+        1:   95:    t3.squeeze();
+        1:   95-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:   95-block  1
+       3*:   96:    EXPECT_EQ(t3.getShape(), (vector<size_t>{44, 2, 3, 3}));
+        1:   96-block  0
+        1:   96-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:   96-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:   96-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:   96-block  4
+call    9 returned 1
+call   10 returned 1
+        1:   96-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:   96-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:   96-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:   96-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:   96-block  9
+call   24 never executed
+call   25 never executed
+        1:   96-block 10
+call   26 returned 1
+    $$$$$:   96-block 11
+call   27 never executed
+    $$$$$:   96-block 12
+    $$$$$:   96-block 13
+call   28 never executed
+    $$$$$:   96-block 14
+    $$$$$:   96-block 15
+    $$$$$:   96-block 16
+    $$$$$:   96-block 17
+call   29 never executed
+    $$$$$:   96-block 18
+    $$$$$:   96-block 19
+call   30 never executed
+    $$$$$:   96-block 20
+    $$$$$:   96-block 21
+call   31 never executed
+        1:   97:}
+call    0 returned 1
+    $$$$$:   97-block  0
+call    1 never executed
+------------------
+        -:   98:
+        -:   99:// Test squeeze function with a specific dimension
+        4:  100:TEST_F(TensorShapeTest, SqueezeWithArgument) {
+        2:  101:    tensorShape t1({1, 2, 3, 1, 7});
+        1:  102:    t1.squeeze(3);
+       3*:  103:    EXPECT_EQ(t1.getShape(), (vector<size_t>{1, 2, 3, 7}));
+        -:  104:
+        3:  105:    tensorShape t2({1, 2, 3, 34, 7});
+        1:  106:    t2.squeeze(0);
+       3*:  107:    EXPECT_EQ(t2.getShape(), (vector<size_t>{2, 3, 34, 7}));
+        -:  108:
+        3:  109:    tensorShape t3({44, 2, 3, 3, 1});
+        1:  110:    t3.squeeze(4);
+       3*:  111:    EXPECT_EQ(t3.getShape(), (vector<size_t>{44, 2, 3, 3}));
+        1:  112:}
+------------------
+_ZN40TensorShapeTest_SqueezeWithArgument_TestC1Ev:
+function _ZN40TensorShapeTest_SqueezeWithArgument_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  100:TEST_F(TensorShapeTest, SqueezeWithArgument) {
+        1:  100-block  0
+call    0 returned 1
+------------------
+_ZN40TensorShapeTest_SqueezeWithArgument_TestD0Ev:
+function _ZN40TensorShapeTest_SqueezeWithArgument_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  100:TEST_F(TensorShapeTest, SqueezeWithArgument) {
+        1:  100-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN40TensorShapeTest_SqueezeWithArgument_TestD1Ev:
+function _ZN40TensorShapeTest_SqueezeWithArgument_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  100:TEST_F(TensorShapeTest, SqueezeWithArgument) {
+        1:  100-block  0
+call    0 returned 1
+------------------
+_ZN40TensorShapeTest_SqueezeWithArgument_Test8TestBodyEv:
+function _ZN40TensorShapeTest_SqueezeWithArgument_Test8TestBodyEv called 1 returned 100% blocks executed 36%
+        1:  100:TEST_F(TensorShapeTest, SqueezeWithArgument) {
+        2:  101:    tensorShape t1({1, 2, 3, 1, 7});
+        1:  101-block  0
+        1:  101-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  101-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  101-block  3
+call    6 returned 1
+    $$$$$:  101-block  4
+call    7 never executed
+    $$$$$:  101-block  5
+    $$$$$:  101-block  6
+    $$$$$:  101-block  7
+        1:  102:    t1.squeeze(3);
+        1:  102-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  102-block  1
+    $$$$$:  102-block  2
+       3*:  103:    EXPECT_EQ(t1.getShape(), (vector<size_t>{1, 2, 3, 7}));
+        1:  103-block  0
+        1:  103-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  103-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  103-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  103-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  103-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  103-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  103-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  103-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  103-block  9
+call   24 never executed
+call   25 never executed
+        1:  103-block 10
+call   26 returned 1
+    $$$$$:  103-block 11
+call   27 never executed
+    $$$$$:  103-block 12
+    $$$$$:  103-block 13
+call   28 never executed
+    $$$$$:  103-block 14
+    $$$$$:  103-block 15
+    $$$$$:  103-block 16
+    $$$$$:  103-block 17
+call   29 never executed
+    $$$$$:  103-block 18
+    $$$$$:  103-block 19
+call   30 never executed
+    $$$$$:  103-block 20
+    $$$$$:  103-block 21
+call   31 never executed
+        -:  104:
+        3:  105:    tensorShape t2({1, 2, 3, 34, 7});
+        1:  105-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  105-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  105-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  105-block  3
+call    8 never executed
+    $$$$$:  105-block  4
+    $$$$$:  105-block  5
+    $$$$$:  105-block  6
+    $$$$$:  105-block  7
+call    9 never executed
+        1:  106:    t2.squeeze(0);
+        1:  106-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  106-block  1
+    $$$$$:  106-block  2
+       3*:  107:    EXPECT_EQ(t2.getShape(), (vector<size_t>{2, 3, 34, 7}));
+        1:  107-block  0
+        1:  107-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  107-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  107-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  107-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  107-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  107-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  107-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  107-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  107-block  9
+call   24 never executed
+call   25 never executed
+        1:  107-block 10
+call   26 returned 1
+    $$$$$:  107-block 11
+call   27 never executed
+    $$$$$:  107-block 12
+    $$$$$:  107-block 13
+call   28 never executed
+    $$$$$:  107-block 14
+    $$$$$:  107-block 15
+    $$$$$:  107-block 16
+    $$$$$:  107-block 17
+call   29 never executed
+    $$$$$:  107-block 18
+    $$$$$:  107-block 19
+call   30 never executed
+    $$$$$:  107-block 20
+    $$$$$:  107-block 21
+call   31 never executed
+        -:  108:
+        3:  109:    tensorShape t3({44, 2, 3, 3, 1});
+        1:  109-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  109-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  109-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  109-block  3
+call    8 never executed
+    $$$$$:  109-block  4
+    $$$$$:  109-block  5
+    $$$$$:  109-block  6
+    $$$$$:  109-block  7
+call    9 never executed
+        1:  110:    t3.squeeze(4);
+        1:  110-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  110-block  1
+    $$$$$:  110-block  2
+       3*:  111:    EXPECT_EQ(t3.getShape(), (vector<size_t>{44, 2, 3, 3}));
+        1:  111-block  0
+        1:  111-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  111-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  111-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  111-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  111-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  111-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  111-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  111-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  111-block  9
+call   24 never executed
+call   25 never executed
+        1:  111-block 10
+call   26 returned 1
+    $$$$$:  111-block 11
+call   27 never executed
+    $$$$$:  111-block 12
+    $$$$$:  111-block 13
+call   28 never executed
+    $$$$$:  111-block 14
+    $$$$$:  111-block 15
+    $$$$$:  111-block 16
+    $$$$$:  111-block 17
+call   29 never executed
+    $$$$$:  111-block 18
+    $$$$$:  111-block 19
+call   30 never executed
+    $$$$$:  111-block 20
+    $$$$$:  111-block 21
+call   31 never executed
+        1:  112:}
+call    0 returned 1
+    $$$$$:  112-block  0
+call    1 never executed
+------------------
+        -:  113:
+        4:  114:TEST_F(TensorShapeTest, SqueezeOneDimensionalShape) {
+        2:  115:    tensorShape t1({3});
+        1:  116:    t1.squeeze();
+       3*:  117:    EXPECT_EQ(t1.getShape(), (vector<size_t>{3}));
+        -:  118:
+        3:  119:    tensorShape t2({1});
+        1:  120:    t2.squeeze();
+       3*:  121:    EXPECT_EQ(t2.getShape(), (vector<size_t>{1}));
+        -:  122:
+        1:  123:    t2.squeeze(0);
+       3*:  124:    EXPECT_EQ(t2.getShape(), (vector<size_t>{1}));
+        1:  125:}
+------------------
+_ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestC1Ev:
+function _ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  114:TEST_F(TensorShapeTest, SqueezeOneDimensionalShape) {
+        1:  114-block  0
+call    0 returned 1
+------------------
+_ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestD0Ev:
+function _ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  114:TEST_F(TensorShapeTest, SqueezeOneDimensionalShape) {
+        1:  114-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestD1Ev:
+function _ZN47TensorShapeTest_SqueezeOneDimensionalShape_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  114:TEST_F(TensorShapeTest, SqueezeOneDimensionalShape) {
+        1:  114-block  0
+call    0 returned 1
+------------------
+_ZN47TensorShapeTest_SqueezeOneDimensionalShape_Test8TestBodyEv:
+function _ZN47TensorShapeTest_SqueezeOneDimensionalShape_Test8TestBodyEv called 1 returned 100% blocks executed 35%
+        1:  114:TEST_F(TensorShapeTest, SqueezeOneDimensionalShape) {
+        2:  115:    tensorShape t1({3});
+        1:  115-block  0
+        1:  115-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  115-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  115-block  3
+call    6 returned 1
+    $$$$$:  115-block  4
+call    7 never executed
+    $$$$$:  115-block  5
+    $$$$$:  115-block  6
+    $$$$$:  115-block  7
+        1:  116:    t1.squeeze();
+        1:  116-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  116-block  1
+       3*:  117:    EXPECT_EQ(t1.getShape(), (vector<size_t>{3}));
+        1:  117-block  0
+        1:  117-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  117-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  117-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  117-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  117-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  117-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  117-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  117-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  117-block  9
+call   24 never executed
+call   25 never executed
+        1:  117-block 10
+call   26 returned 1
+    $$$$$:  117-block 11
+call   27 never executed
+    $$$$$:  117-block 12
+    $$$$$:  117-block 13
+call   28 never executed
+    $$$$$:  117-block 14
+    $$$$$:  117-block 15
+    $$$$$:  117-block 16
+    $$$$$:  117-block 17
+call   29 never executed
+    $$$$$:  117-block 18
+    $$$$$:  117-block 19
+call   30 never executed
+    $$$$$:  117-block 20
+    $$$$$:  117-block 21
+call   31 never executed
+        -:  118:
+        3:  119:    tensorShape t2({1});
+        1:  119-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  119-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  119-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  119-block  3
+call    8 never executed
+    $$$$$:  119-block  4
+    $$$$$:  119-block  5
+    $$$$$:  119-block  6
+    $$$$$:  119-block  7
+call    9 never executed
+        1:  120:    t2.squeeze();
+        1:  120-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  120-block  1
+       3*:  121:    EXPECT_EQ(t2.getShape(), (vector<size_t>{1}));
+        1:  121-block  0
+        1:  121-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  121-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  121-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  121-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  121-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  121-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  121-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  121-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  121-block  9
+call   24 never executed
+call   25 never executed
+        1:  121-block 10
+call   26 returned 1
+    $$$$$:  121-block 11
+call   27 never executed
+    $$$$$:  121-block 12
+    $$$$$:  121-block 13
+call   28 never executed
+    $$$$$:  121-block 14
+    $$$$$:  121-block 15
+    $$$$$:  121-block 16
+    $$$$$:  121-block 17
+call   29 never executed
+    $$$$$:  121-block 18
+    $$$$$:  121-block 19
+call   30 never executed
+    $$$$$:  121-block 20
+    $$$$$:  121-block 21
+call   31 never executed
+        -:  122:
+        1:  123:    t2.squeeze(0);
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0 (throw)
+    $$$$$:  123-block  0
+    $$$$$:  123-block  1
+       3*:  124:    EXPECT_EQ(t2.getShape(), (vector<size_t>{1}));
+        1:  124-block  0
+        1:  124-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  124-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  124-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  124-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  124-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  124-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  124-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  124-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  124-block  9
+call   24 never executed
+call   25 never executed
+        1:  124-block 10
+call   26 returned 1
+    $$$$$:  124-block 11
+call   27 never executed
+    $$$$$:  124-block 12
+    $$$$$:  124-block 13
+call   28 never executed
+    $$$$$:  124-block 14
+    $$$$$:  124-block 15
+    $$$$$:  124-block 16
+    $$$$$:  124-block 17
+call   29 never executed
+    $$$$$:  124-block 18
+    $$$$$:  124-block 19
+call   30 never executed
+    $$$$$:  124-block 20
+    $$$$$:  124-block 21
+call   31 never executed
+        1:  125:}
+call    0 returned 1
+    $$$$$:  125-block  0
+call    1 never executed
+------------------
+        -:  126:
+        -:  127:// Test squeeze function when the targeted dimension is not 1
+        4:  128:TEST_F(TensorShapeTest, SqueezeNonOneDimension) {
+        2:  129:    tensorShape t1({1, 2, 3, 1, 7});
+       1*:  130:    EXPECT_THROW(t1.squeeze(2);, invalid_argument);
+        -:  131:
+        3:  132:    tensorShape t2({3});
+       1*:  133:    EXPECT_THROW(t2.squeeze(0);, invalid_argument);
+        1:  134:}
+------------------
+_ZN43TensorShapeTest_SqueezeNonOneDimension_TestC1Ev:
+function _ZN43TensorShapeTest_SqueezeNonOneDimension_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  128:TEST_F(TensorShapeTest, SqueezeNonOneDimension) {
+        1:  128-block  0
+call    0 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeNonOneDimension_TestD0Ev:
+function _ZN43TensorShapeTest_SqueezeNonOneDimension_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  128:TEST_F(TensorShapeTest, SqueezeNonOneDimension) {
+        1:  128-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeNonOneDimension_TestD1Ev:
+function _ZN43TensorShapeTest_SqueezeNonOneDimension_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  128:TEST_F(TensorShapeTest, SqueezeNonOneDimension) {
+        1:  128-block  0
+call    0 returned 1
+------------------
+_ZN43TensorShapeTest_SqueezeNonOneDimension_Test8TestBodyEv:
+function _ZN43TensorShapeTest_SqueezeNonOneDimension_Test8TestBodyEv called 1 returned 100% blocks executed 31%
+        1:  128:TEST_F(TensorShapeTest, SqueezeNonOneDimension) {
+        2:  129:    tensorShape t1({1, 2, 3, 1, 7});
+        1:  129-block  0
+        1:  129-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  129-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  129-block  3
+call    6 returned 1
+    $$$$$:  129-block  4
+call    7 never executed
+    $$$$$:  129-block  5
+    $$$$$:  129-block  6
+    $$$$$:  129-block  7
+       1*:  130:    EXPECT_THROW(t1.squeeze(2);, invalid_argument);
+        1:  130-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  130-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  130-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  130-block  3
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1 (throw)
+    %%%%%:  130-block  4
+        1:  130-block  5
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1
+    %%%%%:  130-block  6
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:  130-block  7
+    %%%%%:  130-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  130-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:  130-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:  130-block 11
+call   28 never executed
+call   29 never executed
+        1:  130-block 12
+call   30 returned 1
+        1:  130-block 13
+        1:  130-block 14
+        1:  130-block 15
+branch 31 taken 1
+branch 32 taken 0
+branch 33 taken 0
+        1:  130-block 16
+call   34 returned 1
+call   35 returned 1
+    $$$$$:  130-block 17
+call   36 never executed
+call   37 never executed
+branch 38 never executed (fallthrough)
+branch 39 never executed (throw)
+    $$$$$:  130-block 18
+call   40 never executed
+branch 41 never executed (fallthrough)
+branch 42 never executed (throw)
+    $$$$$:  130-block 19
+call   43 never executed
+branch 44 never executed (fallthrough)
+branch 45 never executed (throw)
+    $$$$$:  130-block 20
+call   46 never executed
+call   47 never executed
+branch 48 never executed (fallthrough)
+branch 49 never executed (throw)
+    $$$$$:  130-block 21
+call   50 never executed
+call   51 never executed
+branch 52 never executed (fallthrough)
+branch 53 never executed (throw)
+    $$$$$:  130-block 22
+call   54 never executed
+branch 55 never executed (fallthrough)
+branch 56 never executed (throw)
+    $$$$$:  130-block 23
+    $$$$$:  130-block 24
+call   57 never executed
+    $$$$$:  130-block 25
+call   58 never executed
+call   59 never executed
+branch 60 never executed (fallthrough)
+branch 61 never executed (throw)
+    $$$$$:  130-block 26
+    $$$$$:  130-block 27
+call   62 never executed
+branch 63 never executed (fallthrough)
+branch 64 never executed (throw)
+    $$$$$:  130-block 28
+call   65 never executed
+    $$$$$:  130-block 29
+    $$$$$:  130-block 30
+call   66 never executed
+    $$$$$:  130-block 31
+call   67 never executed
+    $$$$$:  130-block 32
+call   68 never executed
+    $$$$$:  130-block 33
+    $$$$$:  130-block 34
+call   69 never executed
+    $$$$$:  130-block 35
+    $$$$$:  130-block 36
+call   70 never executed
+        -:  131:
+        3:  132:    tensorShape t2({3});
+        1:  132-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  132-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  132-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  132-block  3
+call    8 never executed
+    $$$$$:  132-block  4
+    $$$$$:  132-block  5
+    $$$$$:  132-block  6
+    $$$$$:  132-block  7
+call    9 never executed
+       1*:  133:    EXPECT_THROW(t2.squeeze(0);, invalid_argument);
+        1:  133-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  133-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  133-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  133-block  3
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1 (throw)
+    %%%%%:  133-block  4
+        1:  133-block  5
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1
+    %%%%%:  133-block  6
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:  133-block  7
+    %%%%%:  133-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  133-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:  133-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:  133-block 11
+call   28 never executed
+call   29 never executed
+        1:  133-block 12
+call   30 returned 1
+        1:  133-block 13
+        1:  133-block 14
+        1:  133-block 15
+branch 31 taken 1
+branch 32 taken 0
+branch 33 taken 0
+        1:  133-block 16
+call   34 returned 1
+call   35 returned 1
+    $$$$$:  133-block 17
+call   36 never executed
+call   37 never executed
+branch 38 never executed (fallthrough)
+branch 39 never executed (throw)
+    $$$$$:  133-block 18
+call   40 never executed
+branch 41 never executed (fallthrough)
+branch 42 never executed (throw)
+    $$$$$:  133-block 19
+call   43 never executed
+branch 44 never executed (fallthrough)
+branch 45 never executed (throw)
+    $$$$$:  133-block 20
+call   46 never executed
+call   47 never executed
+branch 48 never executed (fallthrough)
+branch 49 never executed (throw)
+    $$$$$:  133-block 21
+call   50 never executed
+call   51 never executed
+branch 52 never executed (fallthrough)
+branch 53 never executed (throw)
+    $$$$$:  133-block 22
+call   54 never executed
+branch 55 never executed (fallthrough)
+branch 56 never executed (throw)
+    $$$$$:  133-block 23
+    $$$$$:  133-block 24
+call   57 never executed
+    $$$$$:  133-block 25
+call   58 never executed
+call   59 never executed
+branch 60 never executed (fallthrough)
+branch 61 never executed (throw)
+    $$$$$:  133-block 26
+    $$$$$:  133-block 27
+call   62 never executed
+branch 63 never executed (fallthrough)
+branch 64 never executed (throw)
+    $$$$$:  133-block 28
+call   65 never executed
+    $$$$$:  133-block 29
+    $$$$$:  133-block 30
+call   66 never executed
+    $$$$$:  133-block 31
+call   67 never executed
+    $$$$$:  133-block 32
+call   68 never executed
+    $$$$$:  133-block 33
+    $$$$$:  133-block 34
+call   69 never executed
+    $$$$$:  133-block 35
+    $$$$$:  133-block 36
+call   70 never executed
+        1:  134:}
+call    0 returned 1
+    $$$$$:  134-block  0
+call    1 never executed
+------------------
+        -:  135:
+        -:  136:
+        -:  137:// Test squeeze function with a non-existent dimension
+        4:  138:TEST_F(TensorShapeTest, SqueezeNonExistentDimension) {
+        2:  139:    tensorShape t({1, 2, 3, 1, 7});
+       1*:  140:    EXPECT_THROW(t.squeeze(5), out_of_range);
+        1:  141:}
+------------------
+_ZN48TensorShapeTest_SqueezeNonExistentDimension_TestC1Ev:
+function _ZN48TensorShapeTest_SqueezeNonExistentDimension_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  138:TEST_F(TensorShapeTest, SqueezeNonExistentDimension) {
+        1:  138-block  0
+call    0 returned 1
+------------------
+_ZN48TensorShapeTest_SqueezeNonExistentDimension_TestD0Ev:
+function _ZN48TensorShapeTest_SqueezeNonExistentDimension_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  138:TEST_F(TensorShapeTest, SqueezeNonExistentDimension) {
+        1:  138-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN48TensorShapeTest_SqueezeNonExistentDimension_TestD1Ev:
+function _ZN48TensorShapeTest_SqueezeNonExistentDimension_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  138:TEST_F(TensorShapeTest, SqueezeNonExistentDimension) {
+        1:  138-block  0
+call    0 returned 1
+------------------
+_ZN48TensorShapeTest_SqueezeNonExistentDimension_Test8TestBodyEv:
+function _ZN48TensorShapeTest_SqueezeNonExistentDimension_Test8TestBodyEv called 1 returned 100% blocks executed 32%
+        1:  138:TEST_F(TensorShapeTest, SqueezeNonExistentDimension) {
+        2:  139:    tensorShape t({1, 2, 3, 1, 7});
+        1:  139-block  0
+        1:  139-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  139-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  139-block  3
+call    6 returned 1
+    $$$$$:  139-block  4
+call    7 never executed
+    $$$$$:  139-block  5
+    $$$$$:  139-block  6
+    $$$$$:  139-block  7
+       1*:  140:    EXPECT_THROW(t.squeeze(5), out_of_range);
+        1:  140-block  0
+call    0 returned 1
+call    1 returned 1
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        1:  140-block  1
+call    4 returned 1
+branch  5 taken 1 (fallthrough)
+branch  6 taken 0 (throw)
+        1:  140-block  2
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0
+        1:  140-block  3
+call    9 returned 1
+call   10 returned 1
+branch 11 taken 0 (fallthrough)
+branch 12 taken 1 (throw)
+    %%%%%:  140-block  4
+        1:  140-block  5
+branch 13 taken 0 (fallthrough)
+branch 14 taken 1
+    %%%%%:  140-block  6
+call   15 never executed
+branch 16 never executed (fallthrough)
+branch 17 never executed (throw)
+    %%%%%:  140-block  7
+    %%%%%:  140-block  8
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  140-block  9
+call   21 never executed
+call   22 never executed
+branch 23 never executed (fallthrough)
+branch 24 never executed (throw)
+    %%%%%:  140-block 10
+call   25 never executed
+branch 26 never executed (fallthrough)
+branch 27 never executed (throw)
+    %%%%%:  140-block 11
+call   28 never executed
+call   29 never executed
+        1:  140-block 12
+call   30 returned 1
+        1:  140-block 13
+        1:  140-block 14
+        1:  140-block 15
+branch 31 taken 1
+branch 32 taken 0
+branch 33 taken 0
+        1:  140-block 16
+call   34 returned 1
+call   35 returned 1
+    $$$$$:  140-block 17
+call   36 never executed
+call   37 never executed
+branch 38 never executed (fallthrough)
+branch 39 never executed (throw)
+    $$$$$:  140-block 18
+call   40 never executed
+branch 41 never executed (fallthrough)
+branch 42 never executed (throw)
+    $$$$$:  140-block 19
+call   43 never executed
+branch 44 never executed (fallthrough)
+branch 45 never executed (throw)
+    $$$$$:  140-block 20
+call   46 never executed
+call   47 never executed
+branch 48 never executed (fallthrough)
+branch 49 never executed (throw)
+    $$$$$:  140-block 21
+call   50 never executed
+call   51 never executed
+branch 52 never executed (fallthrough)
+branch 53 never executed (throw)
+    $$$$$:  140-block 22
+call   54 never executed
+branch 55 never executed (fallthrough)
+branch 56 never executed (throw)
+    $$$$$:  140-block 23
+    $$$$$:  140-block 24
+call   57 never executed
+    $$$$$:  140-block 25
+call   58 never executed
+call   59 never executed
+branch 60 never executed (fallthrough)
+branch 61 never executed (throw)
+    $$$$$:  140-block 26
+    $$$$$:  140-block 27
+call   62 never executed
+branch 63 never executed (fallthrough)
+branch 64 never executed (throw)
+    $$$$$:  140-block 28
+call   65 never executed
+    $$$$$:  140-block 29
+    $$$$$:  140-block 30
+call   66 never executed
+    $$$$$:  140-block 31
+call   67 never executed
+    $$$$$:  140-block 32
+call   68 never executed
+    $$$$$:  140-block 33
+    $$$$$:  140-block 34
+call   69 never executed
+    $$$$$:  140-block 35
+    $$$$$:  140-block 36
+call   70 never executed
+        1:  141:}
+call    0 returned 1
+    $$$$$:  141-block  0
+call    1 never executed
+------------------
+        -:  142:
+        4:  143:TEST_F(TensorShapeTest, Unsqueeze) {
+        2:  144:    tensorShape t1({1, 2, 3, 1, 7});
+        1:  145:    t1.unsqueeze(5);
+       3*:  146:    EXPECT_EQ(t1.getShape(), (vector<size_t>{1, 2, 3, 1, 7, 1}));
+        1:  147:}
+------------------
+_ZN30TensorShapeTest_Unsqueeze_TestC1Ev:
+function _ZN30TensorShapeTest_Unsqueeze_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  143:TEST_F(TensorShapeTest, Unsqueeze) {
+        1:  143-block  0
+call    0 returned 1
+------------------
+_ZN30TensorShapeTest_Unsqueeze_TestD0Ev:
+function _ZN30TensorShapeTest_Unsqueeze_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  143:TEST_F(TensorShapeTest, Unsqueeze) {
+        1:  143-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN30TensorShapeTest_Unsqueeze_TestD1Ev:
+function _ZN30TensorShapeTest_Unsqueeze_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  143:TEST_F(TensorShapeTest, Unsqueeze) {
+        1:  143-block  0
+call    0 returned 1
+------------------
+_ZN30TensorShapeTest_Unsqueeze_Test8TestBodyEv:
+function _ZN30TensorShapeTest_Unsqueeze_Test8TestBodyEv called 1 returned 100% blocks executed 38%
+        1:  143:TEST_F(TensorShapeTest, Unsqueeze) {
+        2:  144:    tensorShape t1({1, 2, 3, 1, 7});
+        1:  144-block  0
+        1:  144-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  144-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  144-block  3
+call    6 returned 1
+    $$$$$:  144-block  4
+call    7 never executed
+    $$$$$:  144-block  5
+    $$$$$:  144-block  6
+    $$$$$:  144-block  7
+        1:  145:    t1.unsqueeze(5);
+        1:  145-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+       3*:  146:    EXPECT_EQ(t1.getShape(), (vector<size_t>{1, 2, 3, 1, 7, 1}));
+        1:  146-block  0
+        1:  146-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  146-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  146-block  3
+call    6 returned 1
+branch  7 taken 1 (fallthrough)
+branch  8 taken 0 (throw)
+        1:  146-block  4
+call    9 returned 1
+call   10 returned 1
+        1:  146-block  5
+call   11 returned 1
+branch 12 taken 0 (fallthrough)
+branch 13 taken 1
+    %%%%%:  146-block  6
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  146-block  7
+call   17 never executed
+call   18 never executed
+branch 19 never executed (fallthrough)
+branch 20 never executed (throw)
+    %%%%%:  146-block  8
+call   21 never executed
+branch 22 never executed (fallthrough)
+branch 23 never executed (throw)
+    %%%%%:  146-block  9
+call   24 never executed
+call   25 never executed
+        1:  146-block 10
+call   26 returned 1
+    $$$$$:  146-block 11
+call   27 never executed
+    $$$$$:  146-block 12
+    $$$$$:  146-block 13
+call   28 never executed
+    $$$$$:  146-block 14
+    $$$$$:  146-block 15
+    $$$$$:  146-block 16
+    $$$$$:  146-block 17
+call   29 never executed
+    $$$$$:  146-block 18
+    $$$$$:  146-block 19
+call   30 never executed
+    $$$$$:  146-block 20
+    $$$$$:  146-block 21
+call   31 never executed
+        1:  147:}
+call    0 returned 1
+    $$$$$:  147-block  0
+call    1 never executed
+------------------
+        -:  148:
+        4:  149:TEST_F(TensorShapeTest, ConcatenationCompatibility) {
+        2:  150:    const tensorShape t1({1, 2, 3, 1, 7});
+        2:  151:    const tensorShape t2({1, 2, 7, 1, 7});
+        -:  152:
+       1*:  153:    EXPECT_TRUE(t1.isConcatCompatible(t2, 2));
+       1*:  154:    EXPECT_FALSE(t1.isConcatCompatible(t2, 3));
+        -:  155:
+        3:  156:    const tensorShape t3({5, 2, 3, 1, 7});
+        -:  157:
+       1*:  158:    EXPECT_TRUE(t1.isConcatCompatible(t3, 0));
+       1*:  159:    EXPECT_FALSE(t1.isConcatCompatible(t3, 2));
+        -:  160:
+        3:  161:    const tensorShape t4({1, 2, 3, 1});
+        -:  162:
+       1*:  163:    EXPECT_FALSE(t1.isConcatCompatible(t4, 1));
+        1:  164:}
+------------------
+_ZN47TensorShapeTest_ConcatenationCompatibility_TestC1Ev:
+function _ZN47TensorShapeTest_ConcatenationCompatibility_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  149:TEST_F(TensorShapeTest, ConcatenationCompatibility) {
+        1:  149-block  0
+call    0 returned 1
+------------------
+_ZN47TensorShapeTest_ConcatenationCompatibility_TestD0Ev:
+function _ZN47TensorShapeTest_ConcatenationCompatibility_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  149:TEST_F(TensorShapeTest, ConcatenationCompatibility) {
+        1:  149-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN47TensorShapeTest_ConcatenationCompatibility_TestD1Ev:
+function _ZN47TensorShapeTest_ConcatenationCompatibility_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  149:TEST_F(TensorShapeTest, ConcatenationCompatibility) {
+        1:  149-block  0
+call    0 returned 1
+------------------
+_ZN47TensorShapeTest_ConcatenationCompatibility_Test8TestBodyEv:
+function _ZN47TensorShapeTest_ConcatenationCompatibility_Test8TestBodyEv called 1 returned 100% blocks executed 27%
+        1:  149:TEST_F(TensorShapeTest, ConcatenationCompatibility) {
+        2:  150:    const tensorShape t1({1, 2, 3, 1, 7});
+        1:  150-block  0
+        1:  150-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  150-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  150-block  3
+call    6 returned 1
+    $$$$$:  150-block  4
+call    7 never executed
+    $$$$$:  150-block  5
+    $$$$$:  150-block  6
+    $$$$$:  150-block  7
+        2:  151:    const tensorShape t2({1, 2, 7, 1, 7});
+        1:  151-block  0
+        1:  151-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  151-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  151-block  3
+call    6 returned 1
+    $$$$$:  151-block  4
+call    7 never executed
+    $$$$$:  151-block  5
+    $$$$$:  151-block  6
+    $$$$$:  151-block  7
+        -:  152:
+       1*:  153:    EXPECT_TRUE(t1.isConcatCompatible(t2, 2));
+        1:  153-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  153-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  153-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  153-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  153-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  153-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  153-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  153-block  7
+call   23 returned 1
+    $$$$$:  153-block  8
+    $$$$$:  153-block  9
+call   24 never executed
+    $$$$$:  153-block 10
+call   25 never executed
+    $$$$$:  153-block 11
+    $$$$$:  153-block 12
+    $$$$$:  153-block 13
+call   26 never executed
+    $$$$$:  153-block 14
+    $$$$$:  153-block 15
+call   27 never executed
+       1*:  154:    EXPECT_FALSE(t1.isConcatCompatible(t2, 3));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  154-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  154-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  154-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  154-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  154-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  154-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  154-block  6
+call   23 returned 1
+    $$$$$:  154-block  7
+    $$$$$:  154-block  8
+call   24 never executed
+    $$$$$:  154-block  9
+call   25 never executed
+    $$$$$:  154-block 10
+    $$$$$:  154-block 11
+    $$$$$:  154-block 12
+call   26 never executed
+    $$$$$:  154-block 13
+    $$$$$:  154-block 14
+call   27 never executed
+        -:  155:
+        3:  156:    const tensorShape t3({5, 2, 3, 1, 7});
+        1:  156-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  156-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  156-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  156-block  3
+call    8 never executed
+    $$$$$:  156-block  4
+    $$$$$:  156-block  5
+    $$$$$:  156-block  6
+    $$$$$:  156-block  7
+call    9 never executed
+        -:  157:
+       1*:  158:    EXPECT_TRUE(t1.isConcatCompatible(t3, 0));
+        1:  158-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  158-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  158-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  158-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  158-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  158-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  158-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  158-block  7
+call   23 returned 1
+    $$$$$:  158-block  8
+    $$$$$:  158-block  9
+call   24 never executed
+    $$$$$:  158-block 10
+call   25 never executed
+    $$$$$:  158-block 11
+    $$$$$:  158-block 12
+    $$$$$:  158-block 13
+call   26 never executed
+    $$$$$:  158-block 14
+    $$$$$:  158-block 15
+call   27 never executed
+       1*:  159:    EXPECT_FALSE(t1.isConcatCompatible(t3, 2));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  159-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  159-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  159-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  159-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  159-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  159-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  159-block  6
+call   23 returned 1
+    $$$$$:  159-block  7
+    $$$$$:  159-block  8
+call   24 never executed
+    $$$$$:  159-block  9
+call   25 never executed
+    $$$$$:  159-block 10
+    $$$$$:  159-block 11
+    $$$$$:  159-block 12
+call   26 never executed
+    $$$$$:  159-block 13
+    $$$$$:  159-block 14
+call   27 never executed
+        -:  160:
+        3:  161:    const tensorShape t4({1, 2, 3, 1});
+        1:  161-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  161-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  161-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  161-block  3
+call    8 never executed
+    $$$$$:  161-block  4
+    $$$$$:  161-block  5
+    $$$$$:  161-block  6
+    $$$$$:  161-block  7
+call    9 never executed
+        -:  162:
+       1*:  163:    EXPECT_FALSE(t1.isConcatCompatible(t4, 1));
+        1:  163-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  163-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  163-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  163-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  163-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  163-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  163-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  163-block  7
+call   23 returned 1
+    $$$$$:  163-block  8
+    $$$$$:  163-block  9
+call   24 never executed
+    $$$$$:  163-block 10
+call   25 never executed
+    $$$$$:  163-block 11
+    $$$$$:  163-block 12
+    $$$$$:  163-block 13
+call   26 never executed
+    $$$$$:  163-block 14
+    $$$$$:  163-block 15
+call   27 never executed
+        1:  164:}
+call    0 returned 1
+call    1 returned 1
+    $$$$$:  164-block  0
+call    2 never executed
+    $$$$$:  164-block  1
+call    3 never executed
+------------------
+        -:  165:
+        4:  166:TEST_F(TensorShapeTest, SameSize) {
+        2:  167:    const tensorShape t1({1, 2, 3, 1, 7});
+        2:  168:    const tensorShape t2({3, 2, 7, 1});
+        2:  169:    const tensorShape t3({1, 1, 3, 1, 1, 14, 1});
+       1*:  170:    EXPECT_TRUE(t1.sameSize(t2));
+       1*:  171:    EXPECT_TRUE(t2.sameSize(t1));
+       1*:  172:    EXPECT_TRUE(t1.sameSize(t3));
+       1*:  173:    EXPECT_TRUE(t3.sameSize(t1));
+       1*:  174:    EXPECT_TRUE(t2.sameSize(t3));
+       1*:  175:    EXPECT_TRUE(t3.sameSize(t2));
+        1:  176:}
+------------------
+_ZN29TensorShapeTest_SameSize_TestC1Ev:
+function _ZN29TensorShapeTest_SameSize_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  166:TEST_F(TensorShapeTest, SameSize) {
+        1:  166-block  0
+call    0 returned 1
+------------------
+_ZN29TensorShapeTest_SameSize_TestD0Ev:
+function _ZN29TensorShapeTest_SameSize_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  166:TEST_F(TensorShapeTest, SameSize) {
+        1:  166-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN29TensorShapeTest_SameSize_TestD1Ev:
+function _ZN29TensorShapeTest_SameSize_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  166:TEST_F(TensorShapeTest, SameSize) {
+        1:  166-block  0
+call    0 returned 1
+------------------
+_ZN29TensorShapeTest_SameSize_Test8TestBodyEv:
+function _ZN29TensorShapeTest_SameSize_Test8TestBodyEv called 1 returned 100% blocks executed 25%
+        1:  166:TEST_F(TensorShapeTest, SameSize) {
+        2:  167:    const tensorShape t1({1, 2, 3, 1, 7});
+        1:  167-block  0
+        1:  167-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  167-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  167-block  3
+call    6 returned 1
+    $$$$$:  167-block  4
+call    7 never executed
+    $$$$$:  167-block  5
+    $$$$$:  167-block  6
+    $$$$$:  167-block  7
+        2:  168:    const tensorShape t2({3, 2, 7, 1});
+        1:  168-block  0
+        1:  168-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  168-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  168-block  3
+call    6 returned 1
+    $$$$$:  168-block  4
+call    7 never executed
+    $$$$$:  168-block  5
+    $$$$$:  168-block  6
+    $$$$$:  168-block  7
+        2:  169:    const tensorShape t3({1, 1, 3, 1, 1, 14, 1});
+        1:  169-block  0
+        1:  169-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  169-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  169-block  3
+call    6 returned 1
+    $$$$$:  169-block  4
+call    7 never executed
+    $$$$$:  169-block  5
+    $$$$$:  169-block  6
+    $$$$$:  169-block  7
+       1*:  170:    EXPECT_TRUE(t1.sameSize(t2));
+        1:  170-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  170-block  1
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  170-block  2
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  170-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  170-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  170-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  170-block  6
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  170-block  7
+call   23 returned 1
+    $$$$$:  170-block  8
+    $$$$$:  170-block  9
+call   24 never executed
+    $$$$$:  170-block 10
+call   25 never executed
+    $$$$$:  170-block 11
+    $$$$$:  170-block 12
+    $$$$$:  170-block 13
+call   26 never executed
+    $$$$$:  170-block 14
+    $$$$$:  170-block 15
+call   27 never executed
+       1*:  171:    EXPECT_TRUE(t2.sameSize(t1));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  171-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  171-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  171-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  171-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  171-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  171-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  171-block  6
+call   23 returned 1
+    $$$$$:  171-block  7
+    $$$$$:  171-block  8
+call   24 never executed
+    $$$$$:  171-block  9
+call   25 never executed
+    $$$$$:  171-block 10
+    $$$$$:  171-block 11
+    $$$$$:  171-block 12
+call   26 never executed
+    $$$$$:  171-block 13
+    $$$$$:  171-block 14
+call   27 never executed
+       1*:  172:    EXPECT_TRUE(t1.sameSize(t3));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  172-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  172-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  172-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  172-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  172-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  172-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  172-block  6
+call   23 returned 1
+    $$$$$:  172-block  7
+    $$$$$:  172-block  8
+call   24 never executed
+    $$$$$:  172-block  9
+call   25 never executed
+    $$$$$:  172-block 10
+    $$$$$:  172-block 11
+    $$$$$:  172-block 12
+call   26 never executed
+    $$$$$:  172-block 13
+    $$$$$:  172-block 14
+call   27 never executed
+       1*:  173:    EXPECT_TRUE(t3.sameSize(t1));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  173-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  173-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  173-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  173-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  173-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  173-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  173-block  6
+call   23 returned 1
+    $$$$$:  173-block  7
+    $$$$$:  173-block  8
+call   24 never executed
+    $$$$$:  173-block  9
+call   25 never executed
+    $$$$$:  173-block 10
+    $$$$$:  173-block 11
+    $$$$$:  173-block 12
+call   26 never executed
+    $$$$$:  173-block 13
+    $$$$$:  173-block 14
+call   27 never executed
+       1*:  174:    EXPECT_TRUE(t2.sameSize(t3));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  174-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  174-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  174-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  174-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  174-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  174-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  174-block  6
+call   23 returned 1
+    $$$$$:  174-block  7
+    $$$$$:  174-block  8
+call   24 never executed
+    $$$$$:  174-block  9
+call   25 never executed
+    $$$$$:  174-block 10
+    $$$$$:  174-block 11
+    $$$$$:  174-block 12
+call   26 never executed
+    $$$$$:  174-block 13
+    $$$$$:  174-block 14
+call   27 never executed
+       1*:  175:    EXPECT_TRUE(t3.sameSize(t2));
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  175-block  0
+call    3 returned 1
+call    4 returned 1
+branch  5 taken 0 (fallthrough)
+branch  6 taken 1
+    %%%%%:  175-block  1
+call    7 never executed
+branch  8 never executed (fallthrough)
+branch  9 never executed (throw)
+    %%%%%:  175-block  2
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  175-block  3
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  175-block  4
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  175-block  5
+call   20 never executed
+call   21 never executed
+call   22 never executed
+        1:  175-block  6
+call   23 returned 1
+    $$$$$:  175-block  7
+    $$$$$:  175-block  8
+call   24 never executed
+    $$$$$:  175-block  9
+call   25 never executed
+    $$$$$:  175-block 10
+    $$$$$:  175-block 11
+    $$$$$:  175-block 12
+call   26 never executed
+    $$$$$:  175-block 13
+    $$$$$:  175-block 14
+call   27 never executed
+        1:  176:}
+call    0 returned 1
+call    1 returned 1
+call    2 returned 1
+    $$$$$:  176-block  0
+call    3 never executed
+    $$$$$:  176-block  1
+call    4 never executed
+    $$$$$:  176-block  2
+call    5 never executed
+------------------
+        -:  177:
+        4:  178:TEST_F(TensorShapeTest, StringRendering) {
+        2:  179:    const tensorShape t1({32});
+       1*:  180:    EXPECT_EQ(t1.toString(), "tensorShape [32]");
+        -:  181:
+        3:  182:    const tensorShape t2({1, 2, 3, 1, 7});
+       1*:  183:    EXPECT_EQ(t2.toString(), "tensorShape [1, 2, 3, 1, 7]");
+        -:  184:
+        3:  185:    const tensorShape t3({134, 226783, 3, 14, 89, 23});
+       1*:  186:    EXPECT_EQ(t3.toString(), "tensorShape [134, 226783, 3, 14, 89, 23]");
+        1:  187:}
+------------------
+_ZN36TensorShapeTest_StringRendering_TestC1Ev:
+function _ZN36TensorShapeTest_StringRendering_TestC1Ev called 1 returned 100% blocks executed 100%
+        1:  178:TEST_F(TensorShapeTest, StringRendering) {
+        1:  178-block  0
+call    0 returned 1
+------------------
+_ZN36TensorShapeTest_StringRendering_TestD0Ev:
+function _ZN36TensorShapeTest_StringRendering_TestD0Ev called 1 returned 100% blocks executed 100%
+        1:  178:TEST_F(TensorShapeTest, StringRendering) {
+        1:  178-block  0
+call    0 returned 1
+call    1 returned 1
+------------------
+_ZN36TensorShapeTest_StringRendering_TestD1Ev:
+function _ZN36TensorShapeTest_StringRendering_TestD1Ev called 1 returned 100% blocks executed 100%
+        1:  178:TEST_F(TensorShapeTest, StringRendering) {
+        1:  178-block  0
+call    0 returned 1
+------------------
+_ZN36TensorShapeTest_StringRendering_Test8TestBodyEv:
+function _ZN36TensorShapeTest_StringRendering_Test8TestBodyEv called 1 returned 100% blocks executed 33%
+        1:  178:TEST_F(TensorShapeTest, StringRendering) {
+        2:  179:    const tensorShape t1({32});
+        1:  179-block  0
+        1:  179-block  1
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  179-block  2
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  179-block  3
+call    6 returned 1
+    $$$$$:  179-block  4
+call    7 never executed
+    $$$$$:  179-block  5
+    $$$$$:  179-block  6
+    $$$$$:  179-block  7
+       1*:  180:    EXPECT_EQ(t1.toString(), "tensorShape [32]");
+        1:  180-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  180-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  180-block  2
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1
+    %%%%%:  180-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  180-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  180-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  180-block  6
+call   20 never executed
+call   21 never executed
+        1:  180-block  7
+call   22 returned 1
+    $$$$$:  180-block  8
+call   23 never executed
+    $$$$$:  180-block  9
+    $$$$$:  180-block 10
+call   24 never executed
+    $$$$$:  180-block 11
+    $$$$$:  180-block 12
+call   25 never executed
+    $$$$$:  180-block 13
+    $$$$$:  180-block 14
+call   26 never executed
+        -:  181:
+        3:  182:    const tensorShape t2({1, 2, 3, 1, 7});
+        1:  182-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  182-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  182-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  182-block  3
+call    8 never executed
+    $$$$$:  182-block  4
+    $$$$$:  182-block  5
+    $$$$$:  182-block  6
+    $$$$$:  182-block  7
+call    9 never executed
+       1*:  183:    EXPECT_EQ(t2.toString(), "tensorShape [1, 2, 3, 1, 7]");
+        1:  183-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  183-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  183-block  2
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1
+    %%%%%:  183-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  183-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  183-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  183-block  6
+call   20 never executed
+call   21 never executed
+        1:  183-block  7
+call   22 returned 1
+    $$$$$:  183-block  8
+call   23 never executed
+    $$$$$:  183-block  9
+    $$$$$:  183-block 10
+call   24 never executed
+    $$$$$:  183-block 11
+    $$$$$:  183-block 12
+call   25 never executed
+    $$$$$:  183-block 13
+    $$$$$:  183-block 14
+call   26 never executed
+        -:  184:
+        3:  185:    const tensorShape t3({134, 226783, 3, 14, 89, 23});
+        1:  185-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  185-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  185-block  2
+call    6 returned 1
+call    7 returned 1
+    $$$$$:  185-block  3
+call    8 never executed
+    $$$$$:  185-block  4
+    $$$$$:  185-block  5
+    $$$$$:  185-block  6
+    $$$$$:  185-block  7
+call    9 never executed
+       1*:  186:    EXPECT_EQ(t3.toString(), "tensorShape [134, 226783, 3, 14, 89, 23]");
+        1:  186-block  0
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  186-block  1
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  186-block  2
+call    6 returned 1
+call    7 returned 1
+branch  8 taken 0 (fallthrough)
+branch  9 taken 1
+    %%%%%:  186-block  3
+call   10 never executed
+branch 11 never executed (fallthrough)
+branch 12 never executed (throw)
+    %%%%%:  186-block  4
+call   13 never executed
+call   14 never executed
+branch 15 never executed (fallthrough)
+branch 16 never executed (throw)
+    %%%%%:  186-block  5
+call   17 never executed
+branch 18 never executed (fallthrough)
+branch 19 never executed (throw)
+    %%%%%:  186-block  6
+call   20 never executed
+call   21 never executed
+        1:  186-block  7
+call   22 returned 1
+    $$$$$:  186-block  8
+call   23 never executed
+    $$$$$:  186-block  9
+    $$$$$:  186-block 10
+call   24 never executed
+    $$$$$:  186-block 11
+    $$$$$:  186-block 12
+call   25 never executed
+    $$$$$:  186-block 13
+    $$$$$:  186-block 14
+call   26 never executed
+        1:  187:}
+call    0 returned 1
+    $$$$$:  187-block  0
+call    1 never executed
+------------------
+        -:  188:
+        -:  189:

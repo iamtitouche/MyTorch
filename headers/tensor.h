@@ -11,9 +11,13 @@ class tensor {
 public:
     explicit tensor(tensorShape shape);
     tensor(tensorShape shape, double value);
+
+    void initNormal(double mean, double std);
+
     [[nodiscard]] tensor copy() const;
 
-    [[nodiscard]] tensorShape getShape() const;
+    [[nodiscard]] const tensorShape& getShape() const;
+    [[nodiscard]] size_t getSize() const;
     [[nodiscard]] vector<double> getData() const;
 
     bool sameShape(const tensor &other) const;
